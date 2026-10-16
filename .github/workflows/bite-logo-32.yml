@@ -1,0 +1,39 @@
+name: Apply Bite Theory 32px header logo
+on:
+  push:
+    paths:
+      - '.github/workflows/bite-logo-32.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update-logo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Set logo display height
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          marker='<!-- Bite Theory header logo height 32px -->'
+          if marker not in s:
+              rule='\n'+marker+'\n<style>.brand-logo,.brand-logo img{height:32px!important;max-height:32px!important;width:auto!important;object-fit:contain!important}</style>\n'
+              if '</head>' in s:
+                  s=s.replace('</head>',rule+'</head>',1)
+              else:
+                  s=rule+s
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit the updated page
+        run: |
+          if ! git diff --quiet -- index.html; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html
+            git commit -m "Set Bite Theory header logo to 32px"
+            git push
+          fi
