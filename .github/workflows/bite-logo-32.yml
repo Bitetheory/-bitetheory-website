@@ -28,6 +28,15 @@ jobs:
                   s=rule+s
               p.write_text(s,encoding='utf-8')
           PY
+      - name: Inspect existing logo references
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          s=Path("index.html").read_text()
+          for m in list(re.finditer(r'brand-logo|<header|<img[^>]+logo|class="brand|logo-mark',s,re.I))[:30]:
+              print("MATCH",repr(s[max(0,m.start()-120):m.end()+180]))
+          PY
       - name: Commit the updated page
         run: |
           if ! git diff --quiet -- index.html; then
