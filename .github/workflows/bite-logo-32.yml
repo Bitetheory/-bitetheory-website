@@ -37,6 +37,19 @@ jobs:
           for m in list(re.finditer(r'brand-logo|<header|<img[^>]+logo|class="brand|logo-mark',s,re.I))[:30]:
               print("MATCH",repr(s[max(0,m.start()-120):m.end()+180]))
           PY
+      - name: Replace header logo with original artwork
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path("index.html")
+          s=p.read_text(encoding="utf-8")
+          pattern=r'(<img\\s+class="brand-logo"\\s+src=")[^"]*(")'
+          s,n=re.subn(pattern,lambda m:m.group(1)+"bite-theory-header-logo.svg"+m.group(2),s,count=1,flags=re.I)
+          if n != 1:
+              raise SystemExit(f"Expected one header logo, matched {n}; no change saved")
+          p.write_text(s,encoding="utf-8")
+          PY
       - name: Commit the updated page
         run: |
           if ! git diff --quiet -- index.html; then
