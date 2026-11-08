@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch & Follow | Bite Theory, Lilburn GA</title>
+<meta name="description" content="Watch Atlanta food creators try Bite Theory, Lilburn's 100% halal Nashville hot chicken spot, and follow along.">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Permanent+Marker&family=Rubik+Wet+Paint&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+<!--
+  HOW TO UPDATE
+  - SOCIAL: add Bite Theory's real Instagram / TikTok / Facebook in the SOCIAL object at the bottom.
+    Buttons for anything left blank stay hidden.
+  - VIDEOS: each card opens on TikTok (nothing plays on this site). To point a card at one exact video,
+    paste that video's link into its "url" field; otherwise it opens the creator's TikTok page.
+  NOTE: Bite Theory's real Instagram is @eat.bitetheory. @eatbitetheory (no dot, printed on their cups and old site) is a Philadelphia cookie pop-up.
+-->
+<style>
+:root{--ink:#0b0b0b;--ink-2:#141313;--ink-3:#201e1d;--cream:#fbf5ea;--cream-2:#ebe1cf;--red:#e8262b;--red-2:#ff4a2b;--orange:#f26b21;--gold:#ffc53d;--muted:#a59d90;
+  --display:'Anton',Impact,sans-serif;--body:'DM Sans',system-ui,-apple-system,sans-serif;--hand:'Permanent Marker',cursive;--drip:'Rubik Wet Paint','Permanent Marker',cursive;--graf:'Sedgwick Ave Display','Permanent Marker',cursive;--block:'Bungee',Impact,sans-serif;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1240px,92vw);margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:.55em;font-family:var(--display);letter-spacing:.04em;text-transform:uppercase;font-size:1.05rem;padding:.95em 1.6em;border-radius:999px;transition:transform .2s,background .2s,color .2s;cursor:pointer;border:0}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 30px -8px rgba(232,38,43,.75)}
+.btn-red:hover{transform:translateY(-3px) rotate(-1deg);background:var(--red-2)}
+.btn-ghost{border:2px solid var(--cream);color:var(--cream)}
+.btn-ghost:hover{background:var(--cream);color:var(--ink)}
+.eyebrow{font-family:var(--hand);color:var(--gold);font-size:1.15rem}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:.95;font-weight:400}
+h2{font-size:clamp(2.4rem,5.5vw,4.4rem)}
+h2 .drip{font-family:var(--drip);text-transform:none;color:var(--red)}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(11,11,11,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:12px 0;border-bottom:1px solid #ffffff12}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:.45em;font-family:var(--block);font-size:1.2rem}
+.logo .flame{width:34px;height:34px;border-radius:9px;background:var(--red);display:grid;place-items:center;font-size:1.1rem;box-shadow:0 0 22px rgba(232,38,43,.6)}
+.nav-links{display:flex;gap:26px;font-weight:500;font-size:.95rem}
+.nav-links a{opacity:.85}.nav-links a:hover{opacity:1;color:var(--gold)}
+.nav .btn{padding:.7em 1.3em;font-size:.95rem}
+@media(max-width:820px){.nav-links{display:none}}
+
+.hero{position:relative;padding:100px 0 110px;overflow:hidden;min-height:78vh;display:grid;align-items:center;isolation:isolate}
+.wall{position:absolute;inset:-12% -6%;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;transform:rotate(-8deg);opacity:.35;pointer-events:none;z-index:-2}
+.col{display:flex;flex-direction:column;gap:14px;animation:up 40s linear infinite}
+.col:nth-child(even){animation-name:down;animation-duration:46s}
+.col img{width:100%;aspect-ratio:9/14;object-fit:cover;border-radius:16px}
+@keyframes up{to{transform:translateY(-50%)}}
+@keyframes down{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,rgba(11,11,11,.55),var(--ink) 75%)}
+.hero .inner{text-align:center}
+.hero h1{margin:.2em 0 .15em;line-height:.85}
+.hero h1 .a{display:block;font-family:var(--graf);font-size:clamp(3.6rem,9vw,7.4rem);text-transform:none;transform:rotate(-3deg);text-shadow:5px 5px 0 var(--red)}
+.hero h1 .b{display:block;font-family:var(--drip);text-transform:none;font-size:clamp(4rem,11vw,9rem);color:var(--red);filter:drop-shadow(0 6px 0 #000)}
+.hero p{color:var(--cream-2);font-size:1.2rem;max-width:46ch;margin:0 auto 34px}
+.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.soc{display:inline-flex;align-items:center;gap:.6em;padding:.85em 1.4em;border-radius:999px;font-weight:700;background:#ffffff10;border:1.5px solid #ffffff26;transition:all .25s}
+.soc:hover{transform:translateY(-3px);background:var(--cream);color:var(--ink)}
+.soc svg{width:20px;height:20px;fill:currentColor}
+.soc.ig:hover{background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf);color:#fff;border-color:transparent}
+.soc.tt:hover{background:#000;color:#fff;box-shadow:-3px -3px 0 #25f4ee,3px 3px 0 #fe2c55;border-color:transparent}
+.soc.fb:hover{background:#1877f2;color:#fff;border-color:transparent}
+.soc.red{background:var(--red);border-color:var(--red)}
+
+.videos{padding:100px 0;background:var(--ink-2);border-block:1px solid #ffffff10}
+.vhead{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:24px;margin-bottom:40px}
+.vhead p{color:var(--muted);max-width:44ch;margin-top:10px}
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.vcard{position:relative;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:var(--ink-3);transition:transform .3s}
+.vcard:hover{transform:translateY(-8px) rotate(-1deg)}
+.vcard img{width:100%;height:100%;object-fit:cover;animation:kb 9s ease-in-out infinite alternate}
+.vcard:nth-child(2n) img{animation-duration:11s}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.18) translate(-3%,-2%)}}
+.vcard::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.35),transparent 28%,transparent 48%,rgba(0,0,0,.9));z-index:1}
+.vcard .top{position:absolute;top:14px;left:14px;right:14px;z-index:2;display:flex;align-items:center;gap:8px;font-weight:700;font-size:.88rem}
+.vcard .top svg{width:24px;height:24px;fill:#fff;filter:drop-shadow(-1.5px -1.5px 0 #25f4ee) drop-shadow(1.5px 1.5px 0 #fe2c55)}
+.vcard .play{position:absolute;top:50%;left:50%;translate:-50% -50%;z-index:2;width:72px;height:72px;border-radius:50%;background:rgba(232,38,43,.92);display:grid;place-items:center;font-size:1.5rem;color:#fff;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,38,43,.6)}70%{box-shadow:0 0 0 20px rgba(232,38,43,0)}100%{box-shadow:0 0 0 0 rgba(232,38,43,0)}}
+.vcard .cap{position:absolute;left:16px;right:16px;bottom:16px;z-index:2}
+.vcard .cap b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:1.55rem;line-height:1}
+.vcard .cap small{display:block;color:var(--cream-2);margin-top:6px;font-size:.9rem}
+.vcard .cap em{display:inline-flex;align-items:center;gap:.4em;margin-top:12px;font-style:normal;font-weight:700;font-size:.82rem;background:#fff;color:#000;padding:.45em .9em;border-radius:999px}
+@media(max-width:980px){.vgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.vgrid{grid-template-columns:1fr}}
+
+.tagus{padding:100px 0;background:linear-gradient(120deg,var(--red),var(--orange));color:#fff;text-align:center;overflow:hidden}
+.tagus h2{font-family:var(--graf);text-transform:none;font-size:clamp(3rem,8vw,6rem);text-shadow:5px 5px 0 rgba(0,0,0,.35)}
+.tagus p{max-width:48ch;margin:16px auto 30px;font-size:1.15rem;font-weight:500}
+.hash{display:inline-block;font-family:var(--block);font-size:clamp(1.4rem,4vw,2.4rem);background:var(--ink);color:var(--gold);padding:.3em .8em;border-radius:14px;transform:rotate(-2deg);cursor:pointer;border:0}
+.tagus small{display:block;margin-top:14px;opacity:.9}
+
+footer{padding:60px 0 100px;text-align:center;border-top:1px solid #ffffff10;color:var(--muted)}
+footer .big{font-family:var(--drip);font-size:clamp(3rem,11vw,8rem);line-height:.9;color:var(--red);margin-bottom:22px}
+footer nav{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:16px;color:var(--cream-2)}
+.mbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;gap:10px}
+.mbar a{flex:1;justify-content:center}
+@media(max-width:700px){.mbar{display:flex}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="flame">🔥</span>BITE THEORY</a>
+    <nav class="nav-links">
+      <a href="index.html#favorites">Favorites</a>
+      <a href="menu.html">Menu</a>
+      <a href="#videos">Videos</a>
+      <a href="index.html#visit">Visit</a>
+    </nav>
+    <a class="btn btn-red" href="https://order.toasttab.com/online/bite-theory-4895-stone-mountain-hwy" target="_blank" rel="noopener">Order Now</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wall" id="wall" aria-hidden="true"></div>
+  <div class="inner wrap">
+    <div class="eyebrow">Fresh off the fryer, straight to your feed</div>
+    <h1><span class="a">Watch the</span><span class="b">Theory</span></h1>
+    <p>Atlanta's food creators pulled up to Bite Theory. Tap any video to watch it on TikTok, then come get your own.</p>
+    <div class="socials" id="socials"></div>
+  </div>
+</section>
+
+<section class="videos" id="videos">
+  <div class="wrap">
+    <div class="vhead">
+      <div>
+        <div class="eyebrow">As seen on TikTok</div>
+        <h2>The Internet <span class="drip">Tried It</span></h2>
+        <p>Every video opens on TikTok so you can like, comment and follow the creators who made them.</p>
+      </div>
+      <a class="btn btn-ghost" href="menu.html">See the Menu →</a>
+    </div>
+    <div class="vgrid" id="vgrid"></div>
+  </div>
+</section>
+
+<section class="tagus">
+  <div class="wrap">
+    <h2>Post Your Bite</h2>
+    <p>Film your first Reaper wing, your crunch test or your whole order. Tag Bite Theory and you might get featured.</p>
+    <button class="hash" id="hash" title="Click to copy">#TrustTheTheory</button>
+    <small id="copied">Tap the hashtag to copy it</small>
+  </div>
+</section>
+
+<footer>
+  <div class="big">Bite Theory</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#menu">Menu</a>
+    <a href="https://order.toasttab.com/online/bite-theory-4895-stone-mountain-hwy" target="_blank" rel="noopener">Order Online</a>
+    <a href="index.html#visit">Hours &amp; Location</a>
+  </nav>
+  <small>© 2026 Bite Theory · 100% Halal · 4895 Stone Mountain Hwy, Suite A, Lilburn, GA 30047</small>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-ghost" href="index.html" style="background:var(--ink)">Menu</a>
+  <a class="btn btn-red" href="https://order.toasttab.com/online/bite-theory-4895-stone-mountain-hwy" target="_blank" rel="noopener">Order Now</a>
+</div>
+
+<script>
+/* ======================= EDIT THESE ======================= */
+const SOCIAL = {
+  instagram: 'eat.bitetheory',   // real account (note the dot). @eatbitetheory is a different business
+  tiktok:    '',   // Bite Theory's TikTok handle, no @
+  facebook:  '',   // full Facebook page URL
+  google:    'https://g.page/r/CTVh3VJViCUgEBM/review',
+  order:     'https://order.toasttab.com/online/bite-theory-4895-stone-mountain-hwy'
+};
+// Each card opens on TikTok. Leave url blank to open the creator's TikTok page,
+// or paste one exact video link (https://www.tiktok.com/@user/video/123...) to open that video.
+const VIDEOS = [
+  {creator:'atlantafoodguy', url:'', photo:'hot',      title:'New #1 Hot Chicken Spot', sub:'Calls Bite Theory his top pick in the city'},
+  {creator:'sobersipperatl', url:'', photo:'sandwich', title:'Grand Opening Day',       sub:'$5 meals, giveaways & the 10-second challenge'},
+  {creator:'atlhalalbites',  url:'', photo:'bowl',     title:"Lilburn's New Halal Spot", sub:'Halal hot & fried chicken, reviewed'},
+  {creator:'turkifoodie',    url:'', photo:'waffle',   title:'New Fried Chicken Alert', sub:'First look at the halal menu'}
+];
+/* ========================================================== */
+
+const P={
+  hot:'ANWiy9SXbsPAECjuyZgEJ5yLGtCAO1rH0689ZOv48vHfrMTyIJ0-6FIyMCCTHl-VokklUhedvb-IaPpZJ8vI2RDoCg83Pq2nVMnfOKdbxpacPIJFjp8qpta_sYZn32tIhVjem2u91YqLLc9Ws2OL',
+  sandwich:'ANWiy9Tj7M2Yrx41KJ7i8ol6cM8GB1qMbMOY3Lju3N1t05lKkmRAGlDIVKCbP4_khUk2LOC6xQYDwVogWRnRlNfv0PR-2xLyi1cGg-0DjCZ7MDxcDUyt31sOtbSBqJKeW9DPl0Vda0WF3Ux831ns',
+  bowl:'ANWiy9Tcl8PiN04PIr8Lhvcx37WPY24HJXBUrHgbxjZLn6MkYK3vMsss4Ar48HG5xomAdGCc7uPn0puUBfH_hQsyxdL7FIqRpz3l1XEVBzqUa7sfd__c6sQlgloxZDuv9dg3Sv31YObPqXzMwg4',
+  waffle:'ANWiy9SCXBi45t9jHd4wfXmfjkVxJRQ0jTixYGXcbnE7RK55TMXZMc9hFgkffBC49-SrsSsPcWOly0geWNI02BYSeLq8dHsVyidM3mnshqEQwDm0SkPxSrASS7jhw-EsG2i3zLaV6E-Ih9MDn_W9',
+  tacos:'ANWiy9R8z8OGRuuqBcDu72iHCIwHjhoCf_nP1-pcsFvkJgvYmcFe_cWM7n7PrfTtjI8t12MVWCqY5ZOKuxuM-FN4uPT1lkhvPBYhNsYZMCc8-3ynnLK6QeaGdMSz_a5l53XlYHEMWKDuB-TZ6I3f',
+  mac:'ANWiy9T_2ODE2Dg8Jc3J4CByDmjqeQWtRHYMZLgDVNMBPEHDCJwOuE1sj7PwC3Nks1dSzr3YSSCjvTzZNBLuVXHPeQA-UMZG1JIew57fn3oDhTv4URa7hhqi7pwUyyoeV6PrtjA--aCb-gxFrEIG',
+  hush:'ANWiy9Q0Ks87y42lz5NR3xMqRayPRySEjYVbfBPwUxTztne3GZnSCmmpiyWpW_i25Z1aCxqfyDbdR4Zg9n-cJ6RvYSiDIvP4klBDzDe6ZdvJZpyG5TvYMuSe8Nx2U4x185QgeZ6XUq6AN-cjoKs',
+  drinks:'ANWiy9Qikg0Gk--jy9NJX1fQNtXwiftiMKE2Bq7poLYsuk-JFljonlD7ZtbKuivuiQm9fPqc5-WhdOPFNGPVP8ZCdzAUXBXjmQsk08f78NcDGqjPvFp5N2_gb0U2XQan6RUbHAYf0zHdfj32qmA_'
+};
+const G=(k,w,h)=>`https://lh3.googleusercontent.com/gps-cs-s/${P[k]}=w${w}-h${h}-k-no`;
+
+// moving wall of real food photos
+const keys=Object.keys(P),wall=document.getElementById('wall');
+for(let c=0;c<6;c++){const ids=[...keys.slice(c),...keys.slice(0,c)].slice(0,6);wall.insertAdjacentHTML('beforeend',`<div class="col">${ids.concat(ids).map(k=>`<img src="${G(k,300,466)}" alt="" loading="lazy">`).join('')}</div>`)}
+
+// social buttons
+const I={ig:'<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.6a5.2 5.2 0 100 10.4 5.2 5.2 0 000-10.4zm0 8.6a3.4 3.4 0 110-6.8 3.4 3.4 0 010 6.8zm5.4-9.9a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg>',
+  tt:'<svg viewBox="0 0 24 24"><path d="M16.6 2h-3.4v13.6a2.9 2.9 0 11-2.9-2.9c.3 0 .6 0 .8.1V9.3a6.3 6.3 0 105.5 6.3V8.7a7.7 7.7 0 004.4 1.4V6.7a4.4 4.4 0 01-4.4-4.4z"/></svg>',
+  fb:'<svg viewBox="0 0 24 24"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.3c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.1H7.7v3.6h2.7V22H14v-9.9h2.7l.4-3.6H14z"/></svg>',
+  g:'<svg viewBox="0 0 24 24"><path d="M12 17.3l6.2 3.7-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3l5.4 4.7-1.6 7z"/></svg>',
+  bag:'<svg viewBox="0 0 24 24"><path d="M7 7V6a5 5 0 0110 0v1h3l-1 15H5L4 7h3zm2 0h6V6a3 3 0 00-6 0v1z"/></svg>'};
+const btn=(c,h,i,l)=>`<a class="soc ${c}" href="${h}" target="_blank" rel="noopener">${i}${l}</a>`;
+let html='';
+if(SOCIAL.instagram)html+=btn('ig','https://instagram.com/'+SOCIAL.instagram,I.ig,'Instagram');
+if(SOCIAL.tiktok)html+=btn('tt','https://www.tiktok.com/@'+SOCIAL.tiktok,I.tt,'TikTok');
+if(SOCIAL.facebook)html+=btn('fb',SOCIAL.facebook,I.fb,'Facebook');
+html+=btn('',SOCIAL.google,I.g,'Google Reviews');
+html+=btn('red',SOCIAL.order,I.bag,'Order Online');
+document.getElementById('socials').innerHTML=html;
+
+// video cards → open on TikTok
+document.getElementById('vgrid').innerHTML=VIDEOS.map(v=>`<a class="vcard" href="${v.url||'https://www.tiktok.com/@'+v.creator}" target="_blank" rel="noopener"><img src="${G(v.photo,540,960)}" alt="" loading="lazy"><div class="top">${I.tt}@${v.creator}</div><span class="play">▶</span><div class="cap"><b>${v.title}</b><small>${v.sub}</small><em>Watch on TikTok ↗</em></div></a>`).join('');
+
+document.getElementById('hash').addEventListener('click',()=>{try{navigator.clipboard.writeText('#TrustTheTheory');document.getElementById('copied').textContent='Copied! Now go post your bite.'}catch(e){}});
+</script>
+</body>
+</html>

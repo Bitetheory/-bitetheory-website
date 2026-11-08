@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu | Bite Theory, Lilburn GA</title>
+<meta name="description" content="The Bite Theory menu: halal Nashville-style chicken, seafood, sandwiches, tacos, bowls, sides, desserts and drinks in Lilburn, GA.">
+<meta name="theme-color" content="#1a1a1a">
+<!-- Food photos load from Bite Theory's Google Business listing. Prices from their Toast online ordering page. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://lh3.googleusercontent.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1c1c1c; --bg-2:#232323; --card:rgba(255,255,255,.035); --line:rgba(255,255,255,.14);
+  --white:#f5f2ec; --muted:#c9c4bb; --dim:#8f8a82;
+  --red:#ee2b2b; --gold:#ffb81c;
+  --head:'Archivo', 'Arial Black', sans-serif;
+  --body:'Inter', system-ui, -apple-system, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(1400px 700px at 70% -10%, #2a2a2a, var(--bg) 60%);background-color:var(--bg);color:var(--white);font-family:var(--body);-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1180px,90vw);margin:0 auto}
+
+/* HEADER (same layout as bitetheory.co) */
+header{position:sticky;top:0;z-index:40;background:rgba(28,28,28,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:74px}
+.brand{font-family:var(--head);font-weight:900;font-size:1.75rem;letter-spacing:-.02em;font-stretch:90%}
+.brand span{color:var(--red)}
+header nav{display:flex;align-items:center;gap:28px;font-family:var(--head);font-weight:800;font-size:1.05rem;font-stretch:85%}
+header nav a{opacity:.92;transition:color .2s}
+header nav a:hover,header nav a.on{color:var(--gold)}
+.order{background:var(--red);color:#fff;font-family:var(--head);font-weight:900;font-stretch:95%;letter-spacing:.02em;text-transform:uppercase;padding:14px 26px;border-radius:6px;box-shadow:0 8px 24px -8px rgba(238,43,43,.7);transition:transform .2s, background .2s}
+.order:hover{transform:translateY(-2px);background:#ff3d3d}
+@media(max-width:860px){header nav a:not(.order){display:none}}
+
+/* TITLE */
+.intro{padding:70px 0 40px}
+.eyebrow-top{font-family:var(--head);font-weight:800;font-stretch:125%;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-size:.8rem;margin-bottom:14px}
+h1{font-family:var(--head);font-weight:900;font-stretch:88%;font-size:clamp(3.4rem,7.5vw,6rem);letter-spacing:-.03em;line-height:.95;text-transform:uppercase}
+.intro p{color:var(--white);opacity:.92;font-size:1.25rem;font-weight:500;max-width:52ch;margin-top:26px;line-height:1.55}
+.intro p b{color:var(--gold)}
+
+/* CARD GRID */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding-bottom:30px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s, border-color .3s, box-shadow .3s;opacity:0;transform:translateY(24px)}
+.card.in{opacity:1;transform:none;transition:opacity .7s, transform .7s, border-color .3s, box-shadow .3s}
+.card:hover{border-color:rgba(255,184,28,.55);box-shadow:0 30px 60px -30px #000, 0 0 0 1px rgba(255,184,28,.15);transform:translateY(-6px)}
+.photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:#111;cursor:zoom-in}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease, opacity 1s ease}
+.card:hover .photo img{transform:scale(1.07)}
+.photo img.alt{opacity:0}
+.photo.swap img.alt{opacity:1}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%, rgba(0,0,0,.55))}
+.from{position:absolute;right:14px;bottom:12px;z-index:2;font-family:var(--head);font-weight:800;font-stretch:90%;font-size:.95rem;background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.18);padding:6px 12px;border-radius:999px}
+.from b{color:var(--gold)}
+.body{padding:28px 30px 30px;display:flex;flex-direction:column;flex:1}
+.kick{font-family:var(--head);font-weight:800;font-stretch:125%;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-size:.82rem}
+.card h2{font-family:var(--head);font-weight:900;font-stretch:92%;font-size:2.15rem;letter-spacing:-.01em;margin:10px 0 14px;line-height:1.05}
+.desc{color:var(--muted);font-size:1.08rem;line-height:1.6}
+.toggle{margin-top:22px;align-self:flex-start;background:transparent;color:var(--white);border:1px solid var(--line);font-family:var(--head);font-weight:800;font-stretch:95%;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;padding:10px 16px;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s}
+.toggle:hover{border-color:var(--gold);color:var(--gold)}
+.toggle i{font-style:normal;transition:transform .3s}
+.card.open .toggle i{transform:rotate(45deg)}
+.list{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
+.card.open .list{grid-template-rows:1fr}
+.list > div{overflow:hidden}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px dashed rgba(255,255,255,.12);font-size:.98rem}
+.row:first-child{margin-top:18px}
+.row .n{font-weight:600}
+.row .n small{display:block;color:var(--dim);font-weight:500;font-size:.85rem;margin-top:2px}
+.row .p{font-family:var(--head);font-weight:800;color:var(--gold);white-space:nowrap;text-align:right;font-size:.95rem}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.body{padding:24px}}
+
+/* FLAVORS */
+.flavors{padding:50px 0 30px}
+.flavors h3{font-family:var(--head);font-weight:900;font-stretch:90%;font-size:1.9rem;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:22px}
+.pills{display:flex;flex-wrap:wrap;gap:12px}
+.pill{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.35);font-family:var(--head);font-weight:800;font-stretch:92%;font-size:1.1rem;padding:12px 22px;border-radius:999px;cursor:pointer;transition:all .2s}
+.pill:hover{border-color:var(--gold);color:var(--gold)}
+.pill.on{background:var(--c,var(--red));border-color:var(--c,var(--red));color:#111}
+.heat{margin-top:20px;min-height:1.6em;color:var(--muted);font-size:1.05rem}
+.heat b{color:var(--white)}
+.heat .dots{display:inline-flex;gap:4px;margin-right:10px;vertical-align:middle}
+.heat .dots i{width:22px;height:6px;border-radius:3px;background:rgba(255,255,255,.15)}
+.heat .dots i.on{background:var(--c,var(--red))}
+
+.sauce-banner{margin:40px 0 10px;border-radius:16px;padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(110deg,#b3141a,#e8262b 60%,#ff5a2b);box-shadow:0 30px 60px -30px rgba(232,38,43,.8);overflow:hidden;position:relative}
+.sauce-banner strong{display:block;font-family:var(--head);font-weight:900;font-stretch:90%;font-size:clamp(1.6rem,3vw,2.4rem);text-transform:uppercase;line-height:1.05}
+.sauce-banner p{color:#ffe9e0;margin-top:6px;font-size:1.05rem}
+.sb-kick{font-family:var(--head);font-weight:800;font-stretch:125%;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-size:.8rem}
+.sb-cup{flex:none;animation:sb 2.8s ease-in-out infinite}
+@keyframes sb{50%{transform:translateY(-8px) rotate(-8deg)}}
+/* CTA */
+.meal{margin:50px 0 30px;border:1px solid var(--line);border-radius:16px;padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:linear-gradient(110deg,rgba(238,43,43,.2),rgba(255,184,28,.08))}
+.meal strong{font-family:var(--head);font-weight:900;font-stretch:90%;font-size:1.7rem;text-transform:uppercase}
+.meal p{color:var(--muted);margin-top:4px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:40px 0 90px;color:var(--dim);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a:hover{color:var(--gold)}
+
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100;display:none;place-items:center;padding:4vw;cursor:zoom-out}
+.lb.open{display:grid}
+.lb img{max-height:88vh;border-radius:14px}
+.mbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none}
+.mbar a{display:block;text-align:center}
+@media(max-width:700px){.mbar{display:block}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.card{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="index.html" class="brand">BITE <span>THEORY</span></a>
+    <nav>
+      <a href="menu.html" class="on">Menu</a>
+      <a href="index.html#favorites">Favorites</a>
+      <a href="videos.html">Videos</a>
+      <a href="index.html#visit">Visit Us</a>
+      <a class="order" href="https://order.toasttab.com/online/bite-theory-4895-stone-mountain-hwy" target="_blank" rel="noopener">Order Online</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <div class="eyebrow-top">Find your favorite</div>
+    <h1>The Menu</h1>
+    <p>Choose your item. Pick your flavor. Make it a meal with fries and a drink for <b>$2.99 more</b> on eligible items, or go Deluxe for $4.99.</p>
+  </section>
+
+  <section class="grid" id="grid"></section>
+
+  <section class="sauce-banner">
+    <div><span class="sb-kick">Made in-house</span><strong>Don't forget the House Sauce.</strong><p>Bite Theory's house-made sauce goes on everything: tenders, wings, fries, shrimp. Ask for extra.</p></div>
+    <svg class="sb-cup" aria-hidden="true" viewBox="0 0 120 120" width="96" height="96"><path d="M14 40h92l-11 68a8 8 0 0 1-8 7H33a8 8 0 0 1-8-7z" fill="#fbf5ea"/><path d="M16 52q11-8 22 0t22 0t22 0t22 0l-3 20H19z" fill="#e8262b"/><rect x="8" y="32" width="104" height="11" rx="5.5" fill="#fff"/><rect x="34" y="42" width="7" height="24" rx="3.5" fill="#e8262b"/><rect x="74" y="42" width="7" height="32" rx="3.5" fill="#e8262b"/></svg>
+  </section>
+
+  <section class="flavors">
+    <h3>Choose Your Flavor</h3>
+    <div class="pills" id="pills"></div>
+    <div class="heat" id="heat"></div>
+  </section>
+
+  <section class="meal">
+    <div><strong>Ready to order?</strong><p>Order ahead for pickup, or pull through the drive-thru. Open until 1 AM Friday &amp; Saturday.</p></div>
+    <a class="order" href="https://order.toasttab.com/online/bite-theory-4895-stone-mountain-hwy" target="_blank" rel="noopener">Order Online</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Bite Theory · 100% Halal · 4895 Stone Mountain Hwy, Suite A, Lilburn, GA 30047 · <a href="tel:+14048500496">(404) 850-0496</a></span>
+    <span><a href="index.html">Home</a> · <a href="https://instagram.com/eat.bitetheory" target="_blank" rel="noopener">@eat.bitetheory</a> · <a href="videos.html">Videos</a> · <a href="index.html#visit">Hours &amp; Location</a></span>
+  </div>
+</footer>
+
+<div class="mbar"><a class="order" href="https://order.toasttab.com/online/bite-theory-4895-stone-mountain-hwy" target="_blank" rel="noopener">Order Online</a></div>
+<div class="lb" id="lb"><img alt=""></div>
+
+<script>
+const P={
+  hot:'ANWiy9SXbsPAECjuyZgEJ5yLGtCAO1rH0689ZOv48vHfrMTyIJ0-6FIyMCCTHl-VokklUhedvb-IaPpZJ8vI2RDoCg83Pq2nVMnfOKdbxpacPIJFjp8qpta_sYZn32tIhVjem2u91YqLLc9Ws2OL',
+  waffle:'ANWiy9SCXBi45t9jHd4wfXmfjkVxJRQ0jTixYGXcbnE7RK55TMXZMc9hFgkffBC49-SrsSsPcWOly0geWNI02BYSeLq8dHsVyidM3mnshqEQwDm0SkPxSrASS7jhw-EsG2i3zLaV6E-Ih9MDn_W9',
+  tacos:'ANWiy9R8z8OGRuuqBcDu72iHCIwHjhoCf_nP1-pcsFvkJgvYmcFe_cWM7n7PrfTtjI8t12MVWCqY5ZOKuxuM-FN4uPT1lkhvPBYhNsYZMCc8-3ynnLK6QeaGdMSz_a5l53XlYHEMWKDuB-TZ6I3f',
+  sandwich:'ANWiy9Tj7M2Yrx41KJ7i8ol6cM8GB1qMbMOY3Lju3N1t05lKkmRAGlDIVKCbP4_khUk2LOC6xQYDwVogWRnRlNfv0PR-2xLyi1cGg-0DjCZ7MDxcDUyt31sOtbSBqJKeW9DPl0Vda0WF3Ux831ns',
+  bowl:'ANWiy9Tcl8PiN04PIr8Lhvcx37WPY24HJXBUrHgbxjZLn6MkYK3vMsss4Ar48HG5xomAdGCc7uPn0puUBfH_hQsyxdL7FIqRpz3l1XEVBzqUa7sfd__c6sQlgloxZDuv9dg3Sv31YObPqXzMwg4',
+  mac:'ANWiy9T_2ODE2Dg8Jc3J4CByDmjqeQWtRHYMZLgDVNMBPEHDCJwOuE1sj7PwC3Nks1dSzr3YSSCjvTzZNBLuVXHPeQA-UMZG1JIew57fn3oDhTv4URa7hhqi7pwUyyoeV6PrtjA--aCb-gxFrEIG',
+  hush:'ANWiy9Q0Ks87y42lz5NR3xMqRayPRySEjYVbfBPwUxTztne3GZnSCmmpiyWpW_i25Z1aCxqfyDbdR4Zg9n-cJ6RvYSiDIvP4klBDzDe6ZdvJZpyG5TvYMuSe8Nx2U4x185QgeZ6XUq6AN-cjoKs',
+  drinks:'ANWiy9Qikg0Gk--jy9NJX1fQNtXwiftiMKE2Bq7poLYsuk-JFljonlD7ZtbKuivuiQm9fPqc5-WhdOPFNGPVP8ZCdzAUXBXjmQsk08f78NcDGqjPvFp5N2_gb0U2XQan6RUbHAYf0zHdfj32qmA_'
+};
+const G=(k,w,h)=>`https://lh3.googleusercontent.com/gps-cs-s/${P[k]}=w${w}-h${h}-k-no`;
+
+// Same six cards as bitetheory.co, now with photos. Prices from Bite Theory's Toast ordering page.
+const CATS=[
+  {kick:'Chicken Theory',title:'Chicken',desc:'Tenders, whole wings, party wings, boneless wings, and leg quarters.',img:'hot',alt:'waffle',from:'$5.99',items:[
+    ['Chicken Tenders','2 · 3 · 5 PC','$7.99 · $10.99 · $14.99'],['Whole Wings','3 · 4 · 6 · 10 PC','$7.99 – $16.99'],['Party Wings','6 · 9 · 12 PC','$6.99 · $9.99 · $11.99'],
+    ['Boneless Wings','6 · 9 · 12 PC','$6.99 · $9.99 · $11.99'],['Leg Quarters','1 · 2 · 3 PC','$5.99 · $9.99 · $13.99']]},
+  {kick:'Seafood Theory',title:'Seafood',desc:"Catfish fillets, jumbo shrimp, fish sandwich, shrimp po' boy, fish tacos, shrimp tacos and combo options.",img:'tacos',from:'$8.99',items:[
+    ['Catfish Fillets','2 · 3 PC','$9.99 · $12.99'],['Jumbo Shrimp','6 · 12 PC','$11.99 · $22.99'],['Fish Sandwich','','$8.99'],["Shrimp Po' Boy",'','$10.99'],
+    ['Fish Tacos','2 · 3 PC','$8.99 · $11.99'],['Shrimp Tacos','2 · 3 PC','$9.99 · $12.99'],['Seafood Combo','Pick 2 · Pick 3','$13.99 · $18.99']]},
+  {kick:'Sandwiches & Tacos',title:'Handhelds',desc:"Theory's Chicken Sandwich, Honey Butter Chicken Sandwich, chicken tacos, and chicken & waffles.",img:'sandwich',alt:'waffle',from:'$8.99',items:[
+    ["Theory's Nashville Chicken Sandwich",'','$8.99'],['Honey Butter Chicken Sandwich','','$9.99'],['Chicken Tacos','','$8.99'],['Chicken & Waffle','2 · 3 PC','$9.99 · $14.99']]},
+  {kick:'Bowls',title:'Bowls & Fries',desc:'Chicken, shrimp, or catfish over rice; chicken over fries; mac & cheese and fries bowl.',img:'bowl',from:'$9.99',items:[
+    ["Bite Theory's Bowl",'Chicken over mac & cheese + fries','$11.99'],['Chicken Over Rice','','$10.99'],['Shrimp Over Rice','','$14.99'],['Fish Rice Bowl','','$11.99'],['Dirty Fries','Chicken over fries','$9.99']]},
+  {kick:'Sides',title:'Sides',desc:'Corn ribs, cheese dippers, mac & cheese, fried pickles, okra, hush puppies, and fries.',img:'hush',alt:'mac',from:'$3.99',items:[
+    ['Corn Ribs','','$6.99'],['Cheese Dippers','','$8.99'],['Mac & Cheese','','$5.99'],['Fried Pickles','','$5.99'],['Okra','','$4.99'],['Hush Puppies','','$4.99'],['Fries','','$3.99']]},
+  {kick:'Sweet & Refreshing',title:'Desserts & Drinks',desc:'Cake, cheesecake, funnel cake, peach cobbler, lemonades, iced teas, and fountain drinks.',img:'drinks',from:'$2.99',items:[
+    ['Homemade Lemonade','','$3.99'],['Homemade Iced Tea','','$2.99'],['Fountain Drink','Pepsi products','$2.99'],['Peach Cobbler','','$5.49'],
+    ['Funnel Cake','','$7.99'],['Red Velvet Cake','','$4.99'],['Double Chocolate Cake','','$4.99'],['Strawberry Cheesecake','','$4.99']]}
+];
+const grid=document.getElementById('grid');
+grid.innerHTML=CATS.map(c=>`<article class="card">
+  <div class="photo${c.alt?' dual':''}"><img src="${G(c.img,900,675)}" data-full="${G(c.img,1400,1860)}" alt="${c.title}" loading="lazy">${c.alt?`<img class="alt" src="${G(c.alt,900,675)}" data-full="${G(c.alt,1400,1860)}" alt="" loading="lazy">`:''}<span class="from">from <b>${c.from}</b></span></div>
+  <div class="body"><div class="kick">${c.kick}</div><h2>${c.title}</h2><p class="desc">${c.desc}</p>
+  <button class="toggle" aria-expanded="false">See prices <i>+</i></button>
+  <div class="list"><div>${c.items.map(([n,s,p])=>`<div class="row"><span class="n">${n}${s?`<small>${s}</small>`:''}</span><span class="p">${p}</span></div>`).join('')}</div></div></div>
+</article>`).join('');
+
+// expand / collapse prices
+grid.addEventListener('click',e=>{
+  const t=e.target.closest('.toggle');
+  if(t){const card=t.closest('.card');const open=card.classList.toggle('open');t.setAttribute('aria-expanded',open);t.firstChild.textContent=open?'Hide prices ':'See prices ';return}
+  const im=e.target.closest('.photo');
+  if(im){const shown=im.classList.contains('swap')?im.querySelector('.alt'):im.querySelector('img');lbImg.src=shown.dataset.full;lb.classList.add('open')}
+});
+// gently cross-fade cards that have two photos
+setInterval(()=>document.querySelectorAll('.photo.dual').forEach((p,i)=>setTimeout(()=>p.classList.toggle('swap'),i*700)),4200);
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach((e)=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.card').forEach((c,i)=>{c.style.transitionDelay=(i%3)*90+'ms';io.observe(c)});
+
+// flavors
+const FL=[['Original','#f5f2ec',0,'Classic, crispy and seasoned just right.'],['Lemon Pepper','#ffe066',0,'Bright, zesty and peppery.'],['Buffalo','#ff8a3d',2,'Tangy and buttery, with a kick.'],
+  ['Honey BBQ','#d58a3a',1,'Sweet, smoky and sticky.'],["Theory's Nashville",'#ee2b2b',4,'The house heat: cayenne-forward Nashville hot.'],['Reaper','#b3121b',5,'Carolina Reaper heat. Proceed with caution.']];
+const pills=document.getElementById('pills'),heat=document.getElementById('heat');
+pills.innerHTML=FL.map(([n,c],i)=>`<button class="pill" data-i="${i}" style="--c:${c}">${n}</button>`).join('');
+function pick(i){const [n,c,l,d]=FL[i];pills.querySelectorAll('.pill').forEach((p,j)=>p.classList.toggle('on',j===i));heat.style.setProperty('--c',c);
+  heat.innerHTML=`<span class="dots">${[1,2,3,4,5].map(k=>`<i class="${k<=l?'on':''}"></i>`).join('')}</span><b>${n}.</b> ${d}`}
+pills.addEventListener('click',e=>{const b=e.target.closest('.pill');if(b)pick(+b.dataset.i)});pick(4);
+
+const lb=document.getElementById('lb'),lbImg=lb.querySelector('img');
+lb.addEventListener('click',()=>lb.classList.remove('open'));addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
+</script>
+</body>
+</html>
