@@ -6,7 +6,9 @@
 <title>Menu | Bite Theory, Lilburn GA</title>
 <meta name="description" content="The Bite Theory menu: halal Nashville-style chicken, seafood, sandwiches, tacos, bowls, sides, desserts and drinks in Lilburn, GA.">
 <meta name="theme-color" content="#1a1a1a">
-<!-- Food photos load from Bite Theory's Google Business listing. Prices from their Toast online ordering page. -->
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<!-- Food photos are in images/menu/. Prices and item links come from Bite Theory's Toast online ordering page. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://lh3.googleusercontent.com">
@@ -29,8 +31,8 @@ img{display:block;max-width:100%}
 /* HEADER (same layout as bitetheory.co) */
 header{position:sticky;top:0;z-index:40;background:rgba(28,28,28,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:74px}
-.brand{font-family:var(--head);font-weight:900;font-size:1.75rem;letter-spacing:-.02em;font-stretch:90%}
-.brand span{color:var(--red)}
+.brand img{height:50px;width:auto}
+@media(max-width:600px){.brand img{height:38px}}
 header nav{display:flex;align-items:center;gap:28px;font-family:var(--head);font-weight:800;font-size:1.05rem;font-stretch:85%}
 header nav a{opacity:.92;transition:color .2s}
 header nav a:hover,header nav a.on{color:var(--gold)}
@@ -73,7 +75,12 @@ h1{font-family:var(--head);font-weight:900;font-stretch:88%;font-size:clamp(3.4r
 .row:first-child{margin-top:18px}
 .row .n{font-weight:600}
 .row .n small{display:block;color:var(--dim);font-weight:500;font-size:.85rem;margin-top:2px}
-.row .p{font-family:var(--head);font-weight:800;color:var(--gold);white-space:nowrap;text-align:right;font-size:.95rem}
+.row{flex-wrap:wrap}
+.row .p{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.row .p a{font-family:var(--head);font-weight:800;font-size:.85rem;color:var(--white);border:1px solid var(--line);border-radius:999px;padding:5px 11px;white-space:nowrap;transition:all .2s}
+.row .p a b{color:var(--gold);margin-left:4px}
+.row .p a:hover{background:var(--red);border-color:var(--red)}
+.row .p a:hover b{color:#fff}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.body{padding:24px}}
 
@@ -117,7 +124,7 @@ footer a:hover{color:var(--gold)}
 
 <header>
   <div class="wrap">
-    <a href="index.html" class="brand">BITE <span>THEORY</span></a>
+    <a href="index.html" class="brand"><img src="images/logo-bite-theory.png" alt="Bite Theory: Chicken, Sandwiches, Bowls" width="163" height="50"></a>
     <nav>
       <a href="menu.html" class="on">Menu</a>
       <a href="index.html#favorites">Favorites</a>
@@ -165,48 +172,22 @@ footer a:hover{color:var(--gold)}
 <div class="lb" id="lb"><img alt=""></div>
 
 <script>
-const P={
-  hot:'ANWiy9SXbsPAECjuyZgEJ5yLGtCAO1rH0689ZOv48vHfrMTyIJ0-6FIyMCCTHl-VokklUhedvb-IaPpZJ8vI2RDoCg83Pq2nVMnfOKdbxpacPIJFjp8qpta_sYZn32tIhVjem2u91YqLLc9Ws2OL',
-  waffle:'ANWiy9SCXBi45t9jHd4wfXmfjkVxJRQ0jTixYGXcbnE7RK55TMXZMc9hFgkffBC49-SrsSsPcWOly0geWNI02BYSeLq8dHsVyidM3mnshqEQwDm0SkPxSrASS7jhw-EsG2i3zLaV6E-Ih9MDn_W9',
-  tacos:'ANWiy9R8z8OGRuuqBcDu72iHCIwHjhoCf_nP1-pcsFvkJgvYmcFe_cWM7n7PrfTtjI8t12MVWCqY5ZOKuxuM-FN4uPT1lkhvPBYhNsYZMCc8-3ynnLK6QeaGdMSz_a5l53XlYHEMWKDuB-TZ6I3f',
-  sandwich:'ANWiy9Tj7M2Yrx41KJ7i8ol6cM8GB1qMbMOY3Lju3N1t05lKkmRAGlDIVKCbP4_khUk2LOC6xQYDwVogWRnRlNfv0PR-2xLyi1cGg-0DjCZ7MDxcDUyt31sOtbSBqJKeW9DPl0Vda0WF3Ux831ns',
-  bowl:'ANWiy9Tcl8PiN04PIr8Lhvcx37WPY24HJXBUrHgbxjZLn6MkYK3vMsss4Ar48HG5xomAdGCc7uPn0puUBfH_hQsyxdL7FIqRpz3l1XEVBzqUa7sfd__c6sQlgloxZDuv9dg3Sv31YObPqXzMwg4',
-  mac:'ANWiy9T_2ODE2Dg8Jc3J4CByDmjqeQWtRHYMZLgDVNMBPEHDCJwOuE1sj7PwC3Nks1dSzr3YSSCjvTzZNBLuVXHPeQA-UMZG1JIew57fn3oDhTv4URa7hhqi7pwUyyoeV6PrtjA--aCb-gxFrEIG',
-  hush:'ANWiy9Q0Ks87y42lz5NR3xMqRayPRySEjYVbfBPwUxTztne3GZnSCmmpiyWpW_i25Z1aCxqfyDbdR4Zg9n-cJ6RvYSiDIvP4klBDzDe6ZdvJZpyG5TvYMuSe8Nx2U4x185QgeZ6XUq6AN-cjoKs',
-  drinks:'ANWiy9Qikg0Gk--jy9NJX1fQNtXwiftiMKE2Bq7poLYsuk-JFljonlD7ZtbKuivuiQm9fPqc5-WhdOPFNGPVP8ZCdzAUXBXjmQsk08f78NcDGqjPvFp5N2_gb0U2XQan6RUbHAYf0zHdfj32qmA_'
-};
-const G=(k,w,h)=>`https://lh3.googleusercontent.com/gps-cs-s/${P[k]}=w${w}-h${h}-k-no`;
-
-// Same six cards as bitetheory.co, now with photos. Prices from Bite Theory's Toast ordering page.
-const CATS=[
-  {kick:'Chicken Theory',title:'Chicken',desc:'Tenders, whole wings, party wings, boneless wings, and leg quarters.',img:'hot',alt:'waffle',from:'$5.99',items:[
-    ['Chicken Tenders','2 · 3 · 5 PC','$7.99 · $10.99 · $14.99'],['Whole Wings','3 · 4 · 6 · 10 PC','$7.99 – $16.99'],['Party Wings','6 · 9 · 12 PC','$6.99 · $9.99 · $11.99'],
-    ['Boneless Wings','6 · 9 · 12 PC','$6.99 · $9.99 · $11.99'],['Leg Quarters','1 · 2 · 3 PC','$5.99 · $9.99 · $13.99']]},
-  {kick:'Seafood Theory',title:'Seafood',desc:"Catfish fillets, jumbo shrimp, fish sandwich, shrimp po' boy, fish tacos, shrimp tacos and combo options.",img:'tacos',from:'$8.99',items:[
-    ['Catfish Fillets','2 · 3 PC','$9.99 · $12.99'],['Jumbo Shrimp','6 · 12 PC','$11.99 · $22.99'],['Fish Sandwich','','$8.99'],["Shrimp Po' Boy",'','$10.99'],
-    ['Fish Tacos','2 · 3 PC','$8.99 · $11.99'],['Shrimp Tacos','2 · 3 PC','$9.99 · $12.99'],['Seafood Combo','Pick 2 · Pick 3','$13.99 · $18.99']]},
-  {kick:'Sandwiches & Tacos',title:'Handhelds',desc:"Theory's Chicken Sandwich, Honey Butter Chicken Sandwich, chicken tacos, and chicken & waffles.",img:'sandwich',alt:'waffle',from:'$8.99',items:[
-    ["Theory's Nashville Chicken Sandwich",'','$8.99'],['Honey Butter Chicken Sandwich','','$9.99'],['Chicken Tacos','','$8.99'],['Chicken & Waffle','2 · 3 PC','$9.99 · $14.99']]},
-  {kick:'Bowls',title:'Bowls & Fries',desc:'Chicken, shrimp, or catfish over rice; chicken over fries; mac & cheese and fries bowl.',img:'bowl',from:'$9.99',items:[
-    ["Bite Theory's Bowl",'Chicken over mac & cheese + fries','$11.99'],['Chicken Over Rice','','$10.99'],['Shrimp Over Rice','','$14.99'],['Fish Rice Bowl','','$11.99'],['Dirty Fries','Chicken over fries','$9.99']]},
-  {kick:'Sides',title:'Sides',desc:'Corn ribs, cheese dippers, mac & cheese, fried pickles, okra, hush puppies, and fries.',img:'hush',alt:'mac',from:'$3.99',items:[
-    ['Corn Ribs','','$6.99'],['Cheese Dippers','','$8.99'],['Mac & Cheese','','$5.99'],['Fried Pickles','','$5.99'],['Okra','','$4.99'],['Hush Puppies','','$4.99'],['Fries','','$3.99']]},
-  {kick:'Sweet & Refreshing',title:'Desserts & Drinks',desc:'Cake, cheesecake, funnel cake, peach cobbler, lemonades, iced teas, and fountain drinks.',img:'drinks',from:'$2.99',items:[
-    ['Homemade Lemonade','','$3.99'],['Homemade Iced Tea','','$2.99'],['Fountain Drink','Pepsi products','$2.99'],['Peach Cobbler','','$5.49'],
-    ['Funnel Cake','','$7.99'],['Red Velvet Cake','','$4.99'],['Double Chocolate Cake','','$4.99'],['Strawberry Cheesecake','','$4.99']]}
-];
+const ORDER='https://order.toasttab.com/online/bite-theory-4895-stone-mountain-hwy';
+const IMG=n=>`images/menu/${n}.jpg`;
+// Each size button opens that exact item on Toast.
+const CATS=[{"kick": "Chicken Theory", "title": "Chicken", "desc": "Tenders, whole wings, party wings, boneless wings, leg quarters and chicken & waffles.", "img": "nashville-hot-tenders", "alt": "chicken-and-waffle", "frm": "$5.99", "items": [["Chicken Tenders", "Hand-breaded, juicy, crispy", [["2 PC", "$7.99", "chicken-tenders-2-pc_9cc0f314-4ef0-4673-8409-d7ea44be4082"], ["3 PC", "$10.99", "chicken-tenders-3-pc_29ec6b46-48ca-4b46-af61-e10804344d97"], ["5 PC", "$14.99", "chicken-tenders-5-pc_aee84f07-99eb-4660-bb11-eac54cddddcf"]]], ["Whole Wings", "Full wing, fried golden", [["3 PC", "$7.99", "whole-wings-3-pc_34c31441-723e-49b0-9ab1-3e34ac5ba2a2"], ["4 PC", "$9.99", "whole-wings-4-pc_f5276e23-9b28-43e2-b355-a1e3dc830dcf"], ["6 PC", "$13.99", "whole-wings-6-pc_34e0aaaa-5a9b-420a-b148-ba91900531d2"], ["10 PC", "$16.99", "whole-wings-10-pc_71cb9cc1-fede-46b0-94b4-1322f2fbef0d"]]], ["Party Wings", "Flats & drums", [["6 PC", "$6.99", "party-wings-6-pc_0ea9c47e-7b99-463a-8120-8db7fd7607fe"], ["9 PC", "$9.99", "party-wings-9-pc_632258bb-64ee-4eab-ba1f-1c07678a2629"], ["12 PC", "$11.99", "party-wings-12-pc_85dd8b0e-07a9-4a8c-ba61-824801f33896"]]], ["Boneless Wings", "All meat, all flavor", [["6 PC", "$6.99", "boneless-wings-6-pc_5038bb37-69ee-4b56-8d29-b3cdb2c6f05b"], ["9 PC", "$9.99", "boneless-wings-9-pc_853b5022-8096-4495-80f0-403fc10bc9d4"], ["12 PC", "$11.99", "boneless-wings-12-pc_ea384968-c247-4f6a-8215-4cdc00d3f747"]]], ["Leg Quarters", "Old-school and filling", [["1 PC", "$5.99", "1-pc-leg-quarter_2ebcf4ee-51b0-4f3b-a30c-c234ec1e51a4"], ["2 PC", "$9.99", "2-pc-leg-quarter_8d32a4b2-0224-41db-add2-c1430f7f0238"], ["3 PC", "$13.99", "3-pc-leg-quarter_6d6e6cb1-137e-472d-a8b1-be7c8cbc15fc"]]], ["Chicken & Waffle", "Crispy chicken on a golden waffle", [["2 PC", "$9.99", "chicken-waffle-2-pc_49bea398-4137-492b-88be-eecbab19effa"], ["3 PC", "$14.99", "chicken-waffle-3-pc_0aa29e21-352e-48b1-a01c-e28785e1808f"]]]]}, {"kick": "Seafood Theory", "title": "Seafood", "desc": "Catfish fillets, jumbo shrimp, fish sandwich, shrimp po' boy, fish and shrimp tacos, and combos.", "img": "shrimp-basket", "alt": "catfish-basket", "frm": "$8.99", "items": [["Catfish Fillets", "Southern classic", [["2 PC", "$9.99", "catfish-fillets-small_280b87fa-5979-4127-aa3f-a9b18ec7866c"], ["3 PC", "$12.99", "catfish-fillets-large_b50150dd-6b7c-4601-8ccc-7f69bca78749"]]], ["Jumbo Shrimp", "Big, crunchy, addictive", [["6 PC", "$11.99", "jumbo-shrimp-small_dfbd3a89-2e12-4be0-84b6-40dda68e5261"], ["12 PC", "$22.99", "jumbo-shrimp-large_86dd7e15-de2e-4468-8a47-b861aad3f1ca"]]], ["Fish Sandwich", "Crispy fillet, slaw and pickles on a hoagie", [["Order", "$8.99", "fish-sandwich_4403a578-73e1-4729-88ef-624c810e87be"]]], ["Shrimp Po' Boy", "Loaded and dressed", [["Order", "$10.99", "shrimp-po-boy_ef9f1b6d-145a-4bde-a888-8bcbfc08c83a"]]], ["Fish Tacos", "Crispy fish, fresh toppings", [["2 PC", "$8.99", "fish-tacos-2-pc_95bcaf39-b841-484e-a064-a71f1278a160"], ["3 PC", "$11.99", "fish-tacos-3-pc_98a49502-c704-4723-afd8-b01693912b7d"]]], ["Shrimp Tacos", "Jumbo shrimp, pickles, sauce", [["2 PC", "$9.99", "shrimp-tacos-2-pc_85a32886-5151-4a13-b85d-08e0b082ebb6"], ["3 PC", "$12.99", "shrimp-tacos-3-pc_dcd83bb8-7dda-48e5-af3f-22c12229a655"]]], ["Seafood Combo", "Mix and match your favorites", [["Pick 2", "$13.99", "pick-2-combo_16e188a8-bd98-414d-8efd-3050518fddfa"], ["Pick 3", "$18.99", "pick-3-combo_0b3600e4-3096-479a-8d12-ead97af1ed16"]]]]}, {"kick": "Sandwiches & Tacos", "title": "Handhelds", "desc": "Theory's Nashville Chicken Sandwich, Honey Butter Chicken Sandwich and chicken tacos.", "img": "nashville-chicken-sandwich", "alt": "chicken-tacos", "frm": "$8.99", "items": [["Theory's Nashville Chicken Sandwich", "The signature", [["Order", "$8.99", "theorys-nashville-chicken-sandwich_2780c0d7-693e-44a6-994b-933949915766"]]], ["Honey Butter Chicken Sandwich", "Sweet, savory, crunchy", [["Order", "$9.99", "honey-butter-chicken-sandwich_9fbe8622-9e09-48bb-aec6-d7bec9effbfd"]]], ["Chicken Tacos", "Crispy chicken, slaw, pickles, sauce", [["Order", "$8.99+", "chicken-tacos_12fe59a6-1965-448f-9ece-af36535088e2"]]]]}, {"kick": "Bowls", "title": "Bowls & Fries", "desc": "Chicken, shrimp or catfish over rice; chicken over mac & cheese; dirty fries.", "img": "bite-theorys-bowl", "alt": "shrimp-over-rice", "frm": "$9.99", "items": [["Bite Theory's Bowl", "Chicken over mac & cheese + fries", [["Order", "$11.99", "bite-theorys-bowl_b561a2cb-1dad-416e-813f-3575d065b7b7"]]], ["Chicken Over Rice", "Crispy chicken, seasoned rice", [["Order", "$10.99", "chicken-over-rice_d8d2c44e-7bf2-4e3b-a3ad-d15e5b1c62bd"]]], ["Shrimp Over Rice", "Jumbo shrimp, seasoned rice", [["Order", "$14.99", "shrimp-over-rice_b84427aa-d40d-47f4-a34f-85e54ed26d92"]]], ["Fish Rice Bowl", "Crispy catfish over rice", [["Order", "$11.99", "fish-rice-bowl_1856953f-4a84-4b44-a875-1fcc3596a1cb"]]], ["Dirty Fries", "Loaded fries, chicken on top", [["Order", "$9.99", "dirty-fries_038bcaac-ec01-4cf5-b8e0-a04e604fdbb5"]]]]}, {"kick": "Sides", "title": "Sides", "desc": "Corn ribs, cheese dippers, mac & cheese, fried pickles, okra, hush puppies and fries.", "img": "corn-ribs", "alt": "hush-puppies", "frm": "$3.99", "items": [["Corn Ribs", "Seasoned and fried", [["Order", "$6.99", "corn-ribs_436e2dd1-c5ba-4954-a25f-99bcad6d06dd"]]], ["Cheese Dippers", "Melty, stretchy, golden", [["Order", "$8.99", "cheese-dippers_b99c0a00-3747-4725-9c0f-392f6613772e"]]], ["Mac & Cheese", "Creamy and cheesy", [["Order", "$5.99", "mac-cheese_246b4feb-4f98-42e6-8da3-653e320b9b59"]]], ["Fried Pickles", "Crunchy and tangy", [["Order", "$5.99", "fried-pickles_c336f0f4-2d3f-4b38-9614-39581804cf93"]]], ["Okra", "Fried golden", [["Order", "$4.99", "okra_616394ac-8ad5-43de-9b1e-42ee9aa41671"]]], ["Hush Puppies", "Golden and a little sweet", [["Order", "$4.99", "hush-puppies_31370772-901d-4017-b376-ee82c903ebe6"]]], ["Fries", "Seasoned crinkle cut", [["Order", "$3.99+", "fries_9178b125-99b3-4f2d-873c-e776747298e8"]]]]}, {"kick": "Sweet & Refreshing", "title": "Desserts & Drinks", "desc": "Cake, cheesecake, funnel cake, peach cobbler, lemonade, iced tea and fountain drinks.", "img": "homemade-lemonade", "alt": "double-chocolate-cake", "frm": "$2.99", "items": [["Homemade Lemonade", "Made in-house", [["Order", "$3.99", "homemade-lemonade_7e5f3379-c3b8-4321-acec-985681bd43be"]]], ["Homemade Iced Tea", "Brewed in-house", [["Order", "$2.99", "homemade-iced-tea_766bed66-7fcc-4c5f-8d18-b0b0fe029462"]]], ["Fountain Drink", "Pepsi products", [["Order", "$2.99", "fountain-drink_96a35114-6db8-4f74-a0d5-b20a12775907"]]], ["Peach Cobbler", "", [["Order", "$5.49", "peach-cobbler_225057b4-ac4e-4a8a-b105-12c88116b8d1"]]], ["Funnel Cake", "Dusted with powdered sugar", [["Order", "$7.99", "funnel-cake_bc326c44-785e-46e2-a089-0903f41b090f"]]], ["Red Velvet Cake", "", [["Order", "$4.99", "red-velvet-cake_bb071c2a-58ed-4fb1-b03e-2c5f6d41c5b3"]]], ["Double Chocolate Cake", "Layers of chocolate", [["Order", "$4.99", "double-chocolate-cake_e76441f6-8aeb-4b64-8a2c-9baeb7fa32cf"]]], ["Strawberry Cheesecake", "Creamy, with strawberry swirl", [["Order", "$4.99", "strawberry-cheesecake_d1c31939-9fe3-493e-afe3-dbb158f8e050"]]]]}];
 const grid=document.getElementById('grid');
 grid.innerHTML=CATS.map(c=>`<article class="card">
-  <div class="photo${c.alt?' dual':''}"><img src="${G(c.img,900,675)}" data-full="${G(c.img,1400,1860)}" alt="${c.title}" loading="lazy">${c.alt?`<img class="alt" src="${G(c.alt,900,675)}" data-full="${G(c.alt,1400,1860)}" alt="" loading="lazy">`:''}<span class="from">from <b>${c.from}</b></span></div>
+  <div class="photo${c.alt?' dual':''}"><img src="${IMG(c.img)}" data-full="${IMG(c.img)}" alt="${c.title}" loading="lazy">${c.alt?`<img class="alt" src="${IMG(c.alt)}" data-full="${IMG(c.alt)}" alt="" loading="lazy">`:''}<span class="from">from <b>${c.frm}</b></span></div>
   <div class="body"><div class="kick">${c.kick}</div><h2>${c.title}</h2><p class="desc">${c.desc}</p>
-  <button class="toggle" aria-expanded="false">See prices <i>+</i></button>
-  <div class="list"><div>${c.items.map(([n,s,p])=>`<div class="row"><span class="n">${n}${s?`<small>${s}</small>`:''}</span><span class="p">${p}</span></div>`).join('')}</div></div></div>
+  <button class="toggle" aria-expanded="false">See prices &amp; order <i>+</i></button>
+  <div class="list"><div>${c.items.map(([n,s,sz])=>`<div class="row"><span class="n">${n}${s?`<small>${s}</small>`:''}</span><span class="p">${sz.map(([l,p,slug])=>`<a href="${ORDER}/item-${slug}" target="_blank" rel="noopener" aria-label="Order ${n}${l==='Order'?'':' '+l} for ${p}">${l}<b>${p}</b></a>`).join('')}</span></div>`).join('')}</div></div></div>
 </article>`).join('');
 
 // expand / collapse prices
 grid.addEventListener('click',e=>{
   const t=e.target.closest('.toggle');
-  if(t){const card=t.closest('.card');const open=card.classList.toggle('open');t.setAttribute('aria-expanded',open);t.firstChild.textContent=open?'Hide prices ':'See prices ';return}
+  if(t){const card=t.closest('.card');const open=card.classList.toggle('open');t.setAttribute('aria-expanded',open);t.firstChild.textContent=open?'Hide prices ':'See prices & order ';return}
   const im=e.target.closest('.photo');
   if(im){const shown=im.classList.contains('swap')?im.querySelector('.alt'):im.querySelector('img');lbImg.src=shown.dataset.full;lb.classList.add('open')}
 });

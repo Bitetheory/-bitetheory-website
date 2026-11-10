@@ -6,6 +6,8 @@
 <title>Bite Theory | 100% Halal Nashville Hot Chicken & Seafood in Lilburn, GA</title>
 <meta name="description" content="Bite Theory: 100% halal Nashville-style hot chicken, wings, seafood, sandwiches and bowls on Stone Mountain Hwy in Lilburn, GA. Drive-thru, takeout and dine-in. Open late.">
 <meta name="theme-color" content="#0b0b0b">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <!--
   PHOTOS come from Bite Theory's Google Business listing (loaded live from Google).
   SAUCE VIDEO: cut from Bite Theory's own Instagram reel (@eat.bitetheory) and built into this file,
@@ -26,9 +28,9 @@
   --muted:#a59d90;
   --display:'Anton', Impact, 'Arial Narrow Bold', sans-serif;
   --body:'DM Sans', system-ui, -apple-system, sans-serif;
-  --hand:'Permanent Marker', 'Marker Felt', cursive;
-  --drip:'Rubik Wet Paint', 'Permanent Marker', cursive;
-  --graf:'Sedgwick Ave Display', 'Permanent Marker', cursive;
+  --hand:'Permanent Marker', 'Marker Felt', Impact, 'Arial Narrow Bold', sans-serif;
+  --drip:'Rubik Wet Paint', Impact, 'Arial Black', sans-serif;
+  --graf:'Sedgwick Ave Display', Impact, 'Arial Black', sans-serif;
   --block:'Bungee', Impact, sans-serif;
   --r:18px;
 }
@@ -38,6 +40,7 @@ body{background:var(--ink);color:var(--cream);font-family:var(--body);font-size:
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{width:min(1240px,92vw);margin:0 auto}
+@supports(overflow:clip){html,body{overflow-x:clip}}
 .btn{display:inline-flex;align-items:center;gap:.55em;font-family:var(--display);letter-spacing:.04em;text-transform:uppercase;font-size:1.05rem;padding:.95em 1.6em;border-radius:999px;transition:transform .2s, background .2s, color .2s, box-shadow .2s;cursor:pointer;border:0}
 .btn-red{background:var(--red);color:#fff;box-shadow:0 10px 30px -8px rgba(232,38,43,.75)}
 .btn-red:hover{transform:translateY(-3px) rotate(-1deg);background:var(--red-2)}
@@ -47,7 +50,7 @@ a{color:inherit;text-decoration:none}
 h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:.95;letter-spacing:.01em;font-weight:400}
 h2{font-size:clamp(2.6rem,6vw,4.8rem)}
 h2 .drip{font-family:var(--drip);text-transform:none;color:var(--red);letter-spacing:0}
-section{position:relative}
+section{position:relative;scroll-margin-top:70px}
 .checker{background-image:conic-gradient(var(--red) 25%, transparent 0 50%, var(--red) 0 75%, transparent 0);background-size:44px 44px}
 
 /* NAV */
@@ -55,7 +58,9 @@ section{position:relative}
 .nav.scrolled{background:rgba(11,11,11,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:12px 0;border-bottom:1px solid #ffffff12}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:.45em;font-family:var(--block);font-size:1.25rem;letter-spacing:.02em}
-.logo .flame{width:34px;height:34px;border-radius:9px;background:var(--red);display:grid;place-items:center;font-size:1.1rem;box-shadow:0 0 22px rgba(232,38,43,.6)}
+.logo img{height:46px;width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6))}
+.nav.scrolled .logo img{height:40px}
+@media(max-width:600px){.logo img{height:36px}.nav.scrolled .logo img{height:32px}}
 .nav-links{display:flex;gap:26px;font-weight:500;font-size:.95rem}
 .nav-links a{opacity:.85;transition:opacity .2s, color .2s}
 .nav-links a:hover{opacity:1;color:var(--gold)}
@@ -84,6 +89,10 @@ section{position:relative}
 @keyframes glow{50%{filter:drop-shadow(0 6px 0 #000) drop-shadow(0 0 55px rgba(255,74,43,.9))}}
 .title .l1 span,.title .l3 span{display:inline-block;opacity:0;transform:translateY(40px) scale(.7) rotate(-8deg);animation:pop .7s cubic-bezier(.3,1.6,.5,1) forwards}
 @keyframes pop{to{opacity:1;transform:none}}
+.slogan{display:inline-block;margin:.6em 0 0 .1em;font-family:var(--display);text-transform:uppercase;font-size:clamp(1.4rem,2.4vw,2rem);letter-spacing:.32em;color:var(--cream);line-height:1;opacity:0;animation:sloganIn .7s ease-out 1.1s forwards}
+.slogan span{color:var(--red)}
+@keyframes sloganIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.slogan{opacity:1;animation:none}}
 .rotator{font-family:var(--body);font-weight:700;font-size:clamp(1.1rem,1.8vw,1.35rem);margin:22px 0 30px;display:flex;align-items:center;gap:.5em;flex-wrap:wrap}
 .rotator .word{display:inline-block;background:var(--red);color:#fff;padding:.12em .55em;border-radius:8px;font-family:var(--block);font-weight:400;font-size:.95em;letter-spacing:.03em;min-width:8ch;text-align:center;transform:rotate(-1.5deg)}
 .rotator .word.flip{animation:flip .45s ease}
@@ -156,7 +165,8 @@ section{position:relative}
 .showcase{padding:130px 0 110px;overflow:hidden}
 .show-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:46px}
 .show-head p{color:var(--muted);max-width:38ch}
-.stage{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.stage{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:60px;align-items:center}
+.stage>*{min-width:0}
 .frame{position:relative;aspect-ratio:1/1;border-radius:30px;overflow:hidden;border:4px solid var(--ink-3);background:var(--ink-3);box-shadow:0 40px 80px -30px #000}
 .frame .slide{position:absolute;inset:0;transition:clip-path 1s cubic-bezier(.7,0,.2,1);clip-path:inset(0 0 0 100%)}
 .frame .slide.on{clip-path:inset(0 0 0 0);z-index:2}
@@ -167,8 +177,8 @@ section{position:relative}
 .frame .tag{position:absolute;top:22px;right:22px;z-index:5;background:var(--cream);color:var(--ink);font-family:var(--block);font-size:1.4rem;padding:.2em .55em;border-radius:12px;transform:rotate(4deg) scale(0);transition:transform .5s cubic-bezier(.3,1.6,.5,1) .5s;box-shadow:4px 4px 0 var(--red)}
 .frame .tag.show{transform:rotate(4deg) scale(1)}
 .frame .counter{position:absolute;left:22px;bottom:20px;z-index:5;font-family:var(--block);font-size:.9rem;letter-spacing:.1em;background:rgba(11,11,11,.75);padding:.4em .8em;border-radius:999px}
-.info{position:relative;min-height:330px}
-.info .card{position:absolute;inset:0;opacity:0;transform:translateY(40px);transition:opacity .6s, transform .6s;pointer-events:none}
+.info{position:relative;display:grid}
+.info .card{grid-area:1/1;position:relative;opacity:0;transform:translateY(40px);transition:opacity .6s, transform .6s;pointer-events:none}
 .info .card.on{opacity:1;transform:none;pointer-events:auto;transition-delay:.25s}
 .info .kicker{font-family:var(--hand);color:var(--gold);font-size:1.2rem}
 .info h3{font-size:clamp(2.8rem,5.5vw,4.6rem);margin:.15em 0 .3em}
@@ -187,7 +197,7 @@ section{position:relative}
 .arrows{display:flex;gap:10px;margin-top:16px}
 .arrows button{width:52px;height:52px;border-radius:50%;border:2px solid #ffffff30;background:transparent;color:var(--cream);font-size:1.3rem;cursor:pointer;transition:all .2s}
 .arrows button:hover{background:var(--cream);color:var(--ink)}
-@media(max-width:880px){.stage{grid-template-columns:1fr;gap:30px}.info{min-height:300px}}
+@media(max-width:880px){.stage{grid-template-columns:minmax(0,1fr);gap:30px}}
 
 
 /* ================= THE SAUCE ================= */
@@ -264,21 +274,32 @@ section{position:relative}
 .pics .duo figure{aspect-ratio:1}
 .pics img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .pics figure:hover img{transform:scale(1.06)}
+.pics .duo figcaption{font-size:.7rem;left:10px;bottom:10px}
 .pics figcaption{position:absolute;left:14px;bottom:14px;font-family:var(--block);font-size:.85rem;background:var(--cream);color:var(--ink);padding:.3em .7em;border-radius:8px;box-shadow:3px 3px 0 var(--red)}
 .items h3{font-size:2.8rem;margin-bottom:6px}
 .items .sub{color:var(--muted);margin-bottom:22px}
-.item{padding:16px 0;border-bottom:1px dashed #ffffff22}
+.item{padding:16px 0;border-bottom:1px dashed #ffffff22;display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:start}
+.item .th{width:76px;height:76px;border-radius:14px;overflow:hidden;background:var(--ink-3);cursor:zoom-in;border:1px solid #ffffff14}
+.item .th img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.item .th:hover img{transform:scale(1.08)}
+.item .th.none{display:grid;place-items:center;cursor:default}
+.item .th.none img{width:62%;height:auto;object-fit:contain;opacity:.55}
 .item .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
 .item .n{font-weight:700;font-size:1.1rem}
 .item .d{display:block;color:var(--muted);font-size:.9rem;font-weight:400;margin-top:2px}
 .item .p{font-family:var(--block);font-size:1.15rem;color:var(--gold);white-space:nowrap}
 .sizes{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.sizes span{font-size:.85rem;font-weight:700;border:1px solid #ffffff26;border-radius:999px;padding:.3em .8em;color:var(--cream-2)}
-.sizes span b{color:var(--gold);margin-left:.35em}
+.sizes a{display:inline-flex;align-items:center;font-size:.88rem;font-weight:700;border:1px solid #ffffff2e;border-radius:999px;padding:.4em .9em;color:var(--cream-2);transition:all .2s}
+.sizes a b{color:var(--gold);margin-left:.4em}
+.sizes a i{font-style:normal;margin-left:.45em;opacity:0;width:0;overflow:hidden;transition:all .2s}
+.sizes a:hover,.sizes a:focus-visible{background:var(--red);border-color:var(--red);color:#fff}
+.sizes a:hover b,.sizes a:focus-visible b{color:#fff}
+.sizes a:hover i,.sizes a:focus-visible i{opacity:1;width:1em}
+.tap-note{font-size:.85rem;color:var(--muted);margin:-12px 0 8px}
 .upgrade{margin-top:28px;background:linear-gradient(120deg,var(--red),var(--orange));color:#fff;border-radius:var(--r);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:700}
 .upgrade span{font-family:var(--block);font-size:1.5rem;font-weight:400}
 .menu-cta{text-align:center;margin-top:60px}
-@media(max-width:880px){.panel.active{grid-template-columns:1fr}.pics{position:static}.tabs{top:56px}}
+@media(max-width:880px){.panel.active{grid-template-columns:1fr}.pics{position:static}.tabs{top:56px;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;margin:0 -4vw 34px;padding:10px 4vw;background:var(--ink);scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}.tabs::-webkit-scrollbar{display:none}.tab{flex:none;scroll-snap-align:start}.item{grid-template-columns:64px 1fr;gap:14px}.item .th{width:64px;height:64px}}
 
 /* HALAL */
 .halal-band{padding:90px 0;background:linear-gradient(135deg,#0f2a1a,#0b0b0b 70%)}
@@ -376,7 +397,7 @@ footer small{color:var(--muted)}
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="#top" class="logo"><span class="flame">🔥</span>BITE THEORY</a>
+    <a href="#top" class="logo"><img src="images/logo-bite-theory.png" alt="Bite Theory: Chicken, Sandwiches, Bowls" width="150" height="46"></a>
     <nav class="nav-links">
       <a href="#favorites">Favorites</a>
       <a href="#sauce">The Sauce</a>
@@ -401,6 +422,7 @@ footer small{color:var(--muted)}
         <span class="l2">— the —</span>
         <span class="l3" id="l3">Theory</span>
       </h1>
+      <p class="slogan">Taste the Flavor</p>
       <div class="rotator">Fried to order. Served <span class="word" id="word">Nashville Hot</span></div>
       <div class="ctas">
         <a class="btn btn-red" href="https://order.toasttab.com/online/bite-theory-4895-stone-mountain-hwy" target="_blank" rel="noopener">Order Pickup →</a>
@@ -506,9 +528,9 @@ footer small{color:var(--muted)}
 <section class="menu" id="menu">
   <div class="wrap">
     <div class="menu-head reveal">
-      <div class="eyebrow">Fried fresh to order</div>
+      <div class="eyebrow">Taste the flavor. Trust the Theory.</div>
       <h2>The <span class="drip">Menu</span></h2>
-      <p>Real food, real prices. Tap a photo to see it bigger.</p>
+      <p>Real food, real prices. Tap any size to order it on Toast. Tap a photo to see it bigger.</p>
     </div>
     <div class="tabs" role="tablist">
       <button class="tab active" data-p="chicken">Chicken</button>
@@ -676,19 +698,19 @@ playClip(0);
 
 /* ---------- FAN FAVORITES ---------- */
 const FAVS=[
-  {k:'sandwich',kick:'The signature',name:"Theory's <em>Nashville</em> Sandwich",desc:'Double-battered halal chicken, Nashville-sauced, pickles, toasted bun. The one that started it.',price:'$8.99'},
-  {k:'bowl',kick:'House bowl',name:"Bite Theory's <em>Bowl</em>",desc:'Crispy chicken stacked over creamy mac & cheese and fries. One bowl, the whole theory.',price:'$11.99'},
-  {k:'hot',kick:'Bring napkins',name:'Nashville <em>Hot</em> Quarter',desc:'A leg quarter dunked in Theory’s Nashville heat, with crinkle fries and slaw.',price:'From $5.99'},
-  {k:'tacos',kick:'From the fryer',name:'Shrimp <em>Tacos</em>',desc:'Jumbo fried shrimp, pickles and sauce, folded in warm tortillas.',price:'2 for $9.99'},
-  {k:'waffle',kick:'Brunch whenever',name:'Chicken <em>&amp;</em> Waffle',desc:'Crispy tenders on a golden waffle. Breakfast at midnight is allowed here.',price:'From $9.99'},
-  {k:'hush',kick:'Side quest',name:'Hush <em>Puppies</em>',desc:'Golden, crunchy, a little sweet. The side that disappears first.',price:'$4.99'},
-  {k:'drinks',kick:'Cool down',name:'Homemade <em>Lemonade</em>',desc:'Fresh lemonade and iced tea, made in-house. You’ll need it after the Reaper.',price:'$3.99'}
+  {k:'nashville-chicken-sandwich',go:'theorys-nashville-chicken-sandwich_2780c0d7-693e-44a6-994b-933949915766',kick:'The signature',name:"Theory's <em>Nashville</em> Sandwich",desc:'Double-battered halal chicken, Nashville-sauced, pickles, toasted bun. The one that started it.',price:'$8.99'},
+  {k:'bite-theorys-bowl',go:'bite-theorys-bowl_b561a2cb-1dad-416e-813f-3575d065b7b7',kick:'House bowl',name:"Bite Theory's <em>Bowl</em>",desc:'Crispy chicken stacked over creamy mac & cheese and fries. One bowl, the whole theory.',price:'$11.99'},
+  {k:'leg-quarters',go:'1-pc-leg-quarter_2ebcf4ee-51b0-4f3b-a30c-c234ec1e51a4',kick:'Bring napkins',name:'Nashville <em>Hot</em> Quarter',desc:'A leg quarter dunked in Theory’s Nashville heat, with crinkle fries and slaw.',price:'From $5.99'},
+  {k:'shrimp-tacos',go:'shrimp-tacos-2-pc_85a32886-5151-4a13-b85d-08e0b082ebb6',kick:'From the fryer',name:'Shrimp <em>Tacos</em>',desc:'Jumbo fried shrimp, pickles and sauce, folded in warm tortillas.',price:'2 for $9.99'},
+  {k:'chicken-and-waffle',go:'chicken-waffle-2-pc_49bea398-4137-492b-88be-eecbab19effa',kick:'Brunch whenever',name:'Chicken <em>&amp;</em> Waffle',desc:'Crispy tenders on a golden waffle. Breakfast at midnight is allowed here.',price:'From $9.99'},
+  {k:'hush-puppies',go:'hush-puppies_31370772-901d-4017-b376-ee82c903ebe6',kick:'Side quest',name:'Hush <em>Puppies</em>',desc:'Golden, crunchy, a little sweet. The side that disappears first.',price:'$4.99'},
+  {k:'homemade-lemonade',go:'homemade-lemonade_7e5f3379-c3b8-4321-acec-985681bd43be',kick:'Cool down',name:'Homemade <em>Lemonade</em>',desc:'Fresh lemonade, made in-house. You’ll need it after the Reaper.',price:'$3.99'}
 ];
 const frame=document.getElementById('frame'),info=document.getElementById('info'),thumbs=document.getElementById('thumbs'),tag=document.getElementById('tag'),counter=document.getElementById('counter'),stage=document.getElementById('stage');
 FAVS.forEach((f,i)=>{
-  frame.insertAdjacentHTML('beforeend',`<div class="slide"><img src="${G(f.k,1000)}" alt="" loading="lazy"></div>`);
-  info.insertAdjacentHTML('beforeend',`<div class="card"><div class="kicker">${f.kick}</div><h3>${f.name}</h3><p>${f.desc}</p><span class="price">${f.price}</span><a class="btn btn-red" href="${ORDER}" target="_blank" rel="noopener">Order This →</a></div>`);
-  thumbs.insertAdjacentHTML('beforeend',`<button class="thumb" aria-label="Show ${f.k}"><img src="${G(f.k,180,180)}" alt="" loading="lazy"><span class="bar"></span></button>`);
+  frame.insertAdjacentHTML('beforeend',`<div class="slide"><img src="images/menu/${f.k}.jpg" alt="" loading="lazy"></div>`);
+  info.insertAdjacentHTML('beforeend',`<div class="card"><div class="kicker">${f.kick}</div><h3>${f.name}</h3><p>${f.desc}</p><span class="price">${f.price}</span><a class="btn btn-red" href="${ORDER}/item-${f.go}" target="_blank" rel="noopener">Order This →</a></div>`);
+  thumbs.insertAdjacentHTML('beforeend',`<button class="thumb" aria-label="Show ${f.k}"><img src="images/menu/${f.k}-sm.jpg" alt="" loading="lazy"><span class="bar"></span></button>`);
 });
 const slides=[...frame.querySelectorAll('.slide')],cards=[...info.querySelectorAll('.card')],tb=[...thumbs.querySelectorAll('.thumb')];
 const DUR=4500;let cur=-1,timer=null,paused=false,left=DUR,startedAt=0;
@@ -711,59 +733,78 @@ let sx=null;frame.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{pass
 frame.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(cur+(dx<0?1:-1));sx=null});
 go(0);
 
-/* ---------- MENU (prices from Bite Theory's Toast ordering page) ---------- */
+/* ---------- MENU (prices + links from Bite Theory's Toast ordering page) ----------
+   Each size button opens that exact item on Toast. Photos live in images/menu/. */
+const IMG=n=>`images/menu/${n}.jpg`, SM=n=>`images/menu/${n}-sm.jpg`, T=slug=>`${ORDER}/item-${slug}`;
 const MENU={
-  chicken:{title:'Chicken',sub:'Double-battered, halal, tossed in any of our 6 flavors.',pics:[['hot','Nashville Hot'],['waffle','Chicken & Waffle'],['sandwich','Sandwiches']],meal:true,items:[
-    ['Chicken Tenders','Hand-breaded, juicy, crispy',[['2 PC','$7.99'],['3 PC','$10.99'],['5 PC','$14.99']]],
-    ['Whole Wings','Full wing, fried golden',[['3 PC','$7.99'],['4 PC','$9.99'],['6 PC','$13.99'],['10 PC','$16.99']]],
-    ['Party Wings','Flats & drums',[['6 PC','$6.99'],['9 PC','$9.99'],['12 PC','$11.99']]],
-    ['Boneless Wings','All meat, all flavor',[['6 PC','$6.99'],['9 PC','$9.99'],['12 PC','$11.99']]],
-    ['Leg Quarters','Old-school and filling',[['1 PC','$5.99'],['2 PC','$9.99'],['3 PC','$13.99']]],
-    ['Chicken & Waffle','Crispy chicken on a golden waffle',[['2 PC','$9.99'],['3 PC','$14.99']]]]},
-  seafood:{title:'Seafood',sub:'Seasoned Nashville-style, fried crisp.',pics:[['tacos','Shrimp Tacos'],['hush','Hush Puppies'],['drinks','Lemonade']],items:[
-    ['Catfish Fillets','Southern classic',[['2 PC','$9.99'],['3 PC','$12.99']]],
-    ['Jumbo Shrimp','Big, crunchy, addictive',[['6 PC','$11.99'],['12 PC','$22.99']]],
-    ['Fish Sandwich','Crispy fillet on a soft bun',null,'$8.99'],
-    ["Shrimp Po' Boy",'Loaded and dressed',null,'$10.99'],
-    ['Fish Tacos','Crispy fish, fresh toppings',[['2 PC','$8.99'],['3 PC','$11.99']]],
-    ['Shrimp Tacos','Jumbo shrimp, pickles, sauce',[['2 PC','$9.99'],['3 PC','$12.99']]],
-    ['Seafood Combo','Mix and match your favorites',[['Pick 2','$13.99'],['Pick 3','$18.99']]]]},
-  sandwiches:{title:'Sandwiches & Tacos',sub:'Handhelds with heat.',pics:[['sandwich',"Theory's Nashville"],['tacos','Tacos'],['hot','Pick your heat']],meal:true,items:[
-    ["Theory's Nashville Chicken Sandwich",'The signature',null,'$8.99'],
-    ['Honey Butter Chicken Sandwich','Sweet, savory, crunchy',null,'$9.99'],
-    ['Chicken Tacos','Crispy chicken, fresh toppings',null,'$8.99']]},
-  bowls:{title:'Bowls',sub:'A full meal in one bowl.',pics:[['bowl',"Bite Theory's Bowl"],['mac','Mac & Cheese'],['hot','Nashville Hot']],items:[
-    ["Bite Theory's Bowl",'Chicken over mac & cheese + fries',null,'$11.99'],
-    ['Chicken Over Rice','Crispy chicken, seasoned rice',null,'$10.99'],
-    ['Shrimp Over Rice','Jumbo shrimp, seasoned rice',null,'$14.99'],
-    ['Fish Rice Bowl','Crispy catfish over rice',null,'$11.99'],
-    ['Dirty Fries','Loaded fries, chicken on top',null,'$9.99']]},
-  sides:{title:'Sides',sub:'Round out the order.',pics:[['hush','Hush Puppies'],['mac','Mac & Cheese'],['hot','Crinkle Fries']],items:[
-    ['Corn Ribs','Seasoned and fried',null,'$6.99'],['Cheese Dippers','Melty, stretchy, golden',null,'$8.99'],['Mac & Cheese','Creamy and cheesy',null,'$5.99'],
-    ['Fried Pickles','',null,'$5.99'],['Okra','',null,'$4.99'],['Hush Puppies','',null,'$4.99'],['Fries','',null,'$3.99']]},
-  sweets:{title:'Drinks & Desserts',sub:'Homemade lemonade and sweet endings.',pics:[['drinks','Homemade Lemonade'],['waffle','Waffles'],['mac','Comfort food']],items:[
-    ['Homemade Lemonade','',null,'$3.99'],['Homemade Iced Tea','',null,'$2.99'],['Fountain Drink','Pepsi products',null,'$2.99'],
-    ['Peach Cobbler','',null,'$5.49'],['Funnel Cake','',null,'$7.99'],['Red Velvet Cake','',null,'$4.99'],['Double Chocolate Cake','',null,'$4.99'],['Strawberry Cheesecake','',null,'$4.99']]},
-  family:{title:'Family Meals',sub:'Feeding the whole crew? Up to 100 pieces.',pics:[['hot','Feed the crew'],['tacos','Shrimp'],['bowl','Bowls']],items:[
-    ['Family Whole Wings','',[['20','$34.99'],['30','$49.99'],['50','$79.99'],['100','$149.99']]],
-    ['Family Party Wings','',[['25','$24.99'],['50','$45.99'],['100','$84.99']]],
-    ['Family Boneless Wings','',[['25','$22.99'],['50','$42.99'],['100','$79.99']]],
-    ['Family Legs & Thighs','Mixed pieces',[['20','$24.99'],['30','$34.99'],['50','$54.99'],['100','$99.99']]],
-    ['Family Catfish Fillets','',[['10','$29.99'],['20','$54.99'],['30','$74.99']]],
-    ['Family Jumbo Shrimp','',[['20','$29.99'],['30','$42.99'],['50','$64.99']]]]}
+  chicken:{title:'Chicken',sub:'Double-battered, halal, tossed in any of our 6 flavors.',pics:[['nashville-hot-tenders','Nashville Hot Tenders'],['wings-and-tenders','Wings & Tenders'],['chicken-and-waffle','Chicken & Waffle']],meal:true,items:[
+    ['Chicken Tenders','Hand-breaded, juicy, crispy','chicken-tenders',[['2 PC','$7.99','chicken-tenders-2-pc_9cc0f314-4ef0-4673-8409-d7ea44be4082'],['3 PC','$10.99','chicken-tenders-3-pc_29ec6b46-48ca-4b46-af61-e10804344d97'],['5 PC','$14.99','chicken-tenders-5-pc_aee84f07-99eb-4660-bb11-eac54cddddcf']]],
+    ['Whole Wings','Full wing, fried golden','whole-wings',[['3 PC','$7.99','whole-wings-3-pc_34c31441-723e-49b0-9ab1-3e34ac5ba2a2'],['4 PC','$9.99','whole-wings-4-pc_f5276e23-9b28-43e2-b355-a1e3dc830dcf'],['6 PC','$13.99','whole-wings-6-pc_34e0aaaa-5a9b-420a-b148-ba91900531d2'],['10 PC','$16.99','whole-wings-10-pc_71cb9cc1-fede-46b0-94b4-1322f2fbef0d']]],
+    ['Party Wings','Flats & drums','party-wings',[['6 PC','$6.99','party-wings-6-pc_0ea9c47e-7b99-463a-8120-8db7fd7607fe'],['9 PC','$9.99','party-wings-9-pc_632258bb-64ee-4eab-ba1f-1c07678a2629'],['12 PC','$11.99','party-wings-12-pc_85dd8b0e-07a9-4a8c-ba61-824801f33896']]],
+    ['Boneless Wings','All meat, all flavor','boneless-wings',[['6 PC','$6.99','boneless-wings-6-pc_5038bb37-69ee-4b56-8d29-b3cdb2c6f05b'],['9 PC','$9.99','boneless-wings-9-pc_853b5022-8096-4495-80f0-403fc10bc9d4'],['12 PC','$11.99','boneless-wings-12-pc_ea384968-c247-4f6a-8215-4cdc00d3f747']]],
+    ['Leg Quarters','Old-school and filling','leg-quarters',[['1 PC','$5.99','1-pc-leg-quarter_2ebcf4ee-51b0-4f3b-a30c-c234ec1e51a4'],['2 PC','$9.99','2-pc-leg-quarter_8d32a4b2-0224-41db-add2-c1430f7f0238'],['3 PC','$13.99','3-pc-leg-quarter_6d6e6cb1-137e-472d-a8b1-be7c8cbc15fc']]],
+    ['Chicken & Waffle','Crispy chicken on a golden waffle','chicken-and-waffle',[['2 PC','$9.99','chicken-waffle-2-pc_49bea398-4137-492b-88be-eecbab19effa'],['3 PC','$14.99','chicken-waffle-3-pc_0aa29e21-352e-48b1-a01c-e28785e1808f']]]]},
+  seafood:{title:'Seafood',sub:'Seasoned Nashville-style, fried crisp.',pics:[['shrimp-basket','Jumbo Shrimp'],['catfish-basket','Catfish'],['shrimp-tacos','Shrimp Tacos']],items:[
+    ['Catfish Fillets','Southern classic','catfish-fillets',[['2 PC','$9.99','catfish-fillets-small_280b87fa-5979-4127-aa3f-a9b18ec7866c'],['3 PC','$12.99','catfish-fillets-large_b50150dd-6b7c-4601-8ccc-7f69bca78749']]],
+    ['Jumbo Shrimp','Big, crunchy, addictive','jumbo-shrimp',[['6 PC','$11.99','jumbo-shrimp-small_dfbd3a89-2e12-4be0-84b6-40dda68e5261'],['12 PC','$22.99','jumbo-shrimp-large_86dd7e15-de2e-4468-8a47-b861aad3f1ca']]],
+    ['Fish Sandwich','Crispy fillet, slaw and pickles on a hoagie','fish-sandwich',[['Order','$8.99','fish-sandwich_4403a578-73e1-4729-88ef-624c810e87be']]],
+    ["Shrimp Po' Boy",'Loaded and dressed','shrimp-po-boy',[['Order','$10.99','shrimp-po-boy_ef9f1b6d-145a-4bde-a888-8bcbfc08c83a']]],
+    ['Fish Tacos','Crispy fish, fresh toppings',null,[['2 PC','$8.99','fish-tacos-2-pc_95bcaf39-b841-484e-a064-a71f1278a160'],['3 PC','$11.99','fish-tacos-3-pc_98a49502-c704-4723-afd8-b01693912b7d']]],
+    ['Shrimp Tacos','Jumbo shrimp, pickles, sauce','shrimp-tacos',[['2 PC','$9.99','shrimp-tacos-2-pc_85a32886-5151-4a13-b85d-08e0b082ebb6'],['3 PC','$12.99','shrimp-tacos-3-pc_dcd83bb8-7dda-48e5-af3f-22c12229a655']]],
+    ['Seafood Combo','Mix and match your favorites','catfish-basket',[['Pick 2','$13.99','pick-2-combo_16e188a8-bd98-414d-8efd-3050518fddfa'],['Pick 3','$18.99','pick-3-combo_0b3600e4-3096-479a-8d12-ead97af1ed16']]]]},
+  sandwiches:{title:'Sandwiches & Tacos',sub:'Handhelds with heat.',pics:[['nashville-chicken-sandwich',"Theory's Nashville"],['honey-butter-chicken-sandwich','Honey Butter'],['chicken-tacos','Chicken Tacos']],meal:true,items:[
+    ["Theory's Nashville Chicken Sandwich",'The signature','nashville-chicken-sandwich',[['Order','$8.99','theorys-nashville-chicken-sandwich_2780c0d7-693e-44a6-994b-933949915766']]],
+    ['Honey Butter Chicken Sandwich','Sweet, savory, crunchy','honey-butter-chicken-sandwich',[['Order','$9.99','honey-butter-chicken-sandwich_9fbe8622-9e09-48bb-aec6-d7bec9effbfd']]],
+    ['Chicken Tacos','Crispy chicken, slaw, pickles, sauce','chicken-tacos',[['Order','$8.99+','chicken-tacos_12fe59a6-1965-448f-9ece-af36535088e2']]]]},
+  bowls:{title:'Bowls',sub:'A full meal in one bowl.',pics:[['bite-theorys-bowl',"Bite Theory's Bowl"],['chicken-over-rice','Chicken Over Rice'],['shrimp-over-rice','Shrimp Over Rice']],items:[
+    ["Bite Theory's Bowl",'Chicken over mac & cheese + fries','bite-theorys-bowl',[['Order','$11.99','bite-theorys-bowl_b561a2cb-1dad-416e-813f-3575d065b7b7']]],
+    ['Chicken Over Rice','Crispy chicken, seasoned rice','chicken-over-rice',[['Order','$10.99','chicken-over-rice_d8d2c44e-7bf2-4e3b-a3ad-d15e5b1c62bd']]],
+    ['Shrimp Over Rice','Jumbo shrimp, seasoned rice','shrimp-over-rice',[['Order','$14.99','shrimp-over-rice_b84427aa-d40d-47f4-a34f-85e54ed26d92']]],
+    ['Fish Rice Bowl','Crispy catfish over rice','fish-rice-bowl',[['Order','$11.99','fish-rice-bowl_1856953f-4a84-4b44-a875-1fcc3596a1cb']]],
+    ['Dirty Fries','Loaded fries, chicken on top','dirty-fries',[['Order','$9.99','dirty-fries_038bcaac-ec01-4cf5-b8e0-a04e604fdbb5']]]]},
+  sides:{title:'Sides',sub:'Round out the order.',pics:[['corn-ribs','Corn Ribs'],['fried-pickles','Fried Pickles'],['hush-puppies','Hush Puppies']],items:[
+    ['Corn Ribs','Seasoned and fried','corn-ribs',[['Order','$6.99','corn-ribs_436e2dd1-c5ba-4954-a25f-99bcad6d06dd']]],
+    ['Cheese Dippers','Melty, stretchy, golden','cheese-dippers',[['Order','$8.99','cheese-dippers_b99c0a00-3747-4725-9c0f-392f6613772e']]],
+    ['Mac & Cheese','Creamy and cheesy','g:mac',[['Order','$5.99','mac-cheese_246b4feb-4f98-42e6-8da3-653e320b9b59']]],
+    ['Fried Pickles','Crunchy and tangy','fried-pickles',[['Order','$5.99','fried-pickles_c336f0f4-2d3f-4b38-9614-39581804cf93']]],
+    ['Okra','Fried golden','okra',[['Order','$4.99','okra_616394ac-8ad5-43de-9b1e-42ee9aa41671']]],
+    ['Hush Puppies','Golden and a little sweet','hush-puppies',[['Order','$4.99','hush-puppies_31370772-901d-4017-b376-ee82c903ebe6']]],
+    ['Fries','Seasoned crinkle cut','fries',[['Order','$3.99+','fries_9178b125-99b3-4f2d-873c-e776747298e8']]]]},
+  sweets:{title:'Drinks & Desserts',sub:'Homemade lemonade and sweet endings.',pics:[['homemade-lemonade','Homemade Lemonade'],['double-chocolate-cake','Double Chocolate Cake'],['strawberry-cheesecake','Strawberry Cheesecake']],items:[
+    ['Homemade Lemonade','Made in-house','homemade-lemonade',[['Order','$3.99','homemade-lemonade_7e5f3379-c3b8-4321-acec-985681bd43be']]],
+    ['Homemade Iced Tea','Brewed in-house','g:drinks',[['Order','$2.99','homemade-iced-tea_766bed66-7fcc-4c5f-8d18-b0b0fe029462']]],
+    ['Fountain Drink','Pepsi products',null,[['Order','$2.99','fountain-drink_96a35114-6db8-4f74-a0d5-b20a12775907']]],
+    ['Peach Cobbler','',null,[['Order','$5.49','peach-cobbler_225057b4-ac4e-4a8a-b105-12c88116b8d1']]],
+    ['Funnel Cake','Dusted with powdered sugar','funnel-cake',[['Order','$7.99','funnel-cake_bc326c44-785e-46e2-a089-0903f41b090f']]],
+    ['Red Velvet Cake','',null,[['Order','$4.99','red-velvet-cake_bb071c2a-58ed-4fb1-b03e-2c5f6d41c5b3']]],
+    ['Double Chocolate Cake','Layers of chocolate','double-chocolate-cake',[['Order','$4.99','double-chocolate-cake_e76441f6-8aeb-4b64-8a2c-9baeb7fa32cf']]],
+    ['Strawberry Cheesecake','Creamy, with strawberry swirl','strawberry-cheesecake',[['Order','$4.99','strawberry-cheesecake_d1c31939-9fe3-493e-afe3-dbb158f8e050']]]]},
+  family:{title:'Family Meals',sub:'Feeding the whole crew? Up to 100 pieces.',pics:[['legs-and-thighs','Feed the crew'],['whole-wings','Whole Wings'],['jumbo-shrimp','Jumbo Shrimp']],items:[
+    ['Family Whole Wings','','whole-wings',[['20','$34.99','family-whole-wings-20-wings_5be09739-685a-4824-b12e-d5b6f2e46ac8'],['30','$49.99','family-whole-wings-30-wings_f8f2035f-30e9-4806-b3dc-a39e3b21539e'],['50','$79.99','family-whole-wings-50-wings_96b2a561-3280-444c-a78c-a873f00e8697'],['100','$149.99','family-whole-wings-100-wings_b47a8caa-02fa-4db6-9436-032e9613582b']]],
+    ['Family Party Wings','','party-wings',[['25','$24.99','family-party-wings-25-wings_4d6a9a95-81de-47f9-b508-325d38640969'],['50','$45.99','family-party-wings-50-wings_20fbd3f3-57b0-49ad-bce0-b5a70a64d19c'],['100','$84.99','family-party-wings-100-wings_0a76e3d4-4712-4db9-89ac-1984b8fd13e6']]],
+    ['Family Boneless Wings','','boneless-wings',[['25','$22.99','family-boneless-wings-25-wings_26f2d290-1751-46de-9da2-eeb41a72d156'],['50','$42.99','family-boneless-wings-50-wings_f31f182c-7a0a-469f-b52b-da47ca434e45'],['100','$79.99','family-boneless-wings-100-wings_d477b25a-6b84-426f-9a59-83cb3cc1b4a8']]],
+    ['Family Legs & Thighs','Mixed pieces','legs-and-thighs',[['20','$24.99','family-legs-thighs-20-pc-mix_2569bc26-1359-4e84-9565-589531338f07'],['30','$34.99','family-legs-thighs-30-pc-mix_3c2d22dd-ede5-4e8f-9480-6f2307b9b4ee'],['50','$54.99','family-legs-thighs-50-pc-mix_8cfe7ec0-7320-4852-9a4f-2a5040eb358e'],['100','$99.99','family-legs-thighs-100-pc-mix_3da961a8-caba-4557-9b7a-619f41a35099']]],
+    ['Family Catfish Fillets','','catfish-fillets',[['10','$29.99','family-catfish-fillets-10-pc_0b5131bf-a3c7-45f6-affe-13c3a9ab27ad'],['20','$54.99','family-catfish-fillets-20-pc_5bf165b1-abcd-4424-bc8f-c1c7c94ce7be'],['30','$74.99','family-catfish-fillets-30-pc_d127d246-b52c-4a5f-9d30-927d586159c1']]],
+    ['Family Jumbo Shrimp','','jumbo-shrimp',[['20','$29.99','family-jumbo-shrimp-20-pc_450a255c-815d-4d67-b70c-cee24d9bfa3a'],['30','$42.99','family-jumbo-shrimp-30-pc_7cc190c8-34a7-4e07-bb2d-ff6eb9d7f875'],['50','$64.99','family-jumbo-shrimp-50-pc_3a20018d-a4c7-4a93-972b-bb5fa80f5b53']]]]}
 };
+const thumb=(k,n)=>{if(!k)return `<div class="th none"><img src="images/bt-mark.png" alt=""></div>`;
+  const g=k.startsWith('g:');const sm=g?G(k.slice(2),200,200):SM(k),full=g?G(k.slice(2),1400):IMG(k);
+  return `<div class="th"><img src="${sm}" data-full="${full}" alt="${n}" loading="lazy"></div>`};
 const panels=document.getElementById('panels');
 Object.entries(MENU).forEach(([key,m],idx)=>{
   const [a,b,c]=m.pics;
-  const items=m.items.map(([n,d,sizes,price])=>`<div class="item"><div class="row"><span class="n">${n}${d?`<span class="d">${d}</span>`:''}</span>${price?`<span class="p">${price}</span>`:''}</div>${sizes?`<div class="sizes">${sizes.map(([s,p])=>`<span>${s}<b>${p}</b></span>`).join('')}</div>`:''}</div>`).join('');
+  const items=m.items.map(([n,d,img,sizes])=>`<div class="item">${thumb(img,n)}<div><div class="row"><span class="n">${n}${d?`<span class="d">${d}</span>`:''}</span></div><div class="sizes">${sizes.map(([s,p,slug])=>`<a href="${T(slug)}" target="_blank" rel="noopener" aria-label="Order ${n}${s==='Order'?'':' '+s} for ${p}">${s}<b>${p}</b><i>→</i></a>`).join('')}</div></div></div>`).join('');
   panels.insertAdjacentHTML('beforeend',`<div class="panel ${idx?'':'active'}" id="p-${key}">
-    <div class="pics"><figure><img src="${G(a[0],900)}" data-full="${G(a[0],1400)}" alt="${a[1]}" loading="lazy"><figcaption>${a[1]}</figcaption></figure>
-    <div class="duo"><figure><img src="${G(b[0],500,500)}" data-full="${G(b[0],1400)}" alt="${b[1]}" loading="lazy"></figure><figure><img src="${G(c[0],500,500)}" data-full="${G(c[0],1400)}" alt="${c[1]}" loading="lazy"></figure></div></div>
+    <div class="pics"><figure><img src="${IMG(a[0])}" data-full="${IMG(a[0])}" alt="${a[1]}" loading="lazy"><figcaption>${a[1]}</figcaption></figure>
+    <div class="duo"><figure><img src="${IMG(b[0])}" data-full="${IMG(b[0])}" alt="${b[1]}" loading="lazy"><figcaption>${b[1]}</figcaption></figure><figure><img src="${IMG(c[0])}" data-full="${IMG(c[0])}" alt="${c[1]}" loading="lazy"><figcaption>${c[1]}</figcaption></figure></div></div>
     <div class="items"><h3>${m.title}</h3><p class="sub">${m.sub}</p>${items}${m.meal?'<div class="upgrade">Make it a meal: fries + drink <span>+$2.99</span></div>':''}</div></div>`);
 });
+const menuSec=document.getElementById('menu');
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
   t.classList.add('active');document.getElementById('p-'+t.dataset.p).classList.add('active');
+  t.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
+  const top=document.getElementById('panels').getBoundingClientRect().top+scrollY-140;if(scrollY>top)scrollTo({top,behavior:'smooth'});
 }));
 
 /* ---------- TikTok creator tiles (open on TikTok) ---------- */
@@ -778,12 +819,12 @@ document.getElementById('tiles').innerHTML=CREATORS.map(([h,k,t,s])=>`<a class="
 
 /* ---------- misc ---------- */
 document.getElementById('storeImg').src=G('storeNight',1200,700);
-document.getElementById('sauceImg').src=G('hot',700,700);
+document.getElementById('sauceImg').src='images/menu/nashville-hot-tenders.jpg';
 const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
 const readout=document.getElementById('readout');
 document.querySelectorAll('.flavor').forEach(f=>f.addEventListener('click',()=>{document.querySelectorAll('.flavor').forEach(x=>x.classList.remove('active'));f.classList.add('active');readout.innerHTML='<strong>'+f.querySelector('h3').textContent+'</strong><span>'+f.dataset.t+'</span>'}));
 const lb=document.getElementById('lb'),lbImg=lb.querySelector('img');
-document.addEventListener('click',e=>{const im=e.target.closest('.pics img');if(im){lbImg.src=im.dataset.full||im.src;lb.classList.add('open')}});
+document.addEventListener('click',e=>{const im=e.target.closest('.pics img, .item .th:not(.none) img');if(im){lbImg.src=im.dataset.full||im.src;lb.classList.add('open')}});
 lb.addEventListener('click',()=>lb.classList.remove('open'));
 addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
 (function(){const now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/New_York'}));const d=now.getDay(),h=now.getHours()+now.getMinutes()/60;

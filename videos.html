@@ -6,6 +6,8 @@
 <title>Watch & Follow | Bite Theory, Lilburn GA</title>
 <meta name="description" content="Watch Atlanta food creators try Bite Theory, Lilburn's 100% halal Nashville hot chicken spot, and follow along.">
 <meta name="theme-color" content="#0b0b0b">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Permanent+Marker&family=Rubik+Wet+Paint&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
@@ -19,7 +21,7 @@
 -->
 <style>
 :root{--ink:#0b0b0b;--ink-2:#141313;--ink-3:#201e1d;--cream:#fbf5ea;--cream-2:#ebe1cf;--red:#e8262b;--red-2:#ff4a2b;--orange:#f26b21;--gold:#ffc53d;--muted:#a59d90;
-  --display:'Anton',Impact,sans-serif;--body:'DM Sans',system-ui,-apple-system,sans-serif;--hand:'Permanent Marker',cursive;--drip:'Rubik Wet Paint','Permanent Marker',cursive;--graf:'Sedgwick Ave Display','Permanent Marker',cursive;--block:'Bungee',Impact,sans-serif;--r:18px}
+  --display:'Anton',Impact,sans-serif;--body:'DM Sans',system-ui,-apple-system,sans-serif;--hand:'Permanent Marker',Impact,sans-serif;--drip:'Rubik Wet Paint',Impact,sans-serif;--graf:'Sedgwick Ave Display',Impact,sans-serif;--block:'Bungee',Impact,sans-serif;--r:18px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--cream);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -39,7 +41,8 @@ h2 .drip{font-family:var(--drip);text-transform:none;color:var(--red)}
 .nav{position:sticky;top:0;z-index:50;background:rgba(11,11,11,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:12px 0;border-bottom:1px solid #ffffff12}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:.45em;font-family:var(--block);font-size:1.2rem}
-.logo .flame{width:34px;height:34px;border-radius:9px;background:var(--red);display:grid;place-items:center;font-size:1.1rem;box-shadow:0 0 22px rgba(232,38,43,.6)}
+.logo img{height:46px;width:auto}
+@media(max-width:600px){.logo img{height:36px}}
 .nav-links{display:flex;gap:26px;font-weight:500;font-size:.95rem}
 .nav-links a{opacity:.85}.nav-links a:hover{opacity:1;color:var(--gold)}
 .nav .btn{padding:.7em 1.3em;font-size:.95rem}
@@ -107,7 +110,7 @@ footer nav{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bo
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html" class="logo"><span class="flame">🔥</span>BITE THEORY</a>
+    <a href="index.html" class="logo"><img src="images/logo-bite-theory.png" alt="Bite Theory: Chicken, Sandwiches, Bowls" width="150" height="46"></a>
     <nav class="nav-links">
       <a href="index.html#favorites">Favorites</a>
       <a href="menu.html">Menu</a>
