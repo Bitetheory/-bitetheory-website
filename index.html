@@ -241,7 +241,7 @@ section{position:relative;scroll-margin-top:70px}
 .heat{padding:110px 0;background:var(--ink-2);border-block:1px solid #ffffff10}
 .heat-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
 .heat-head p{color:var(--muted);max-width:40ch}
-.meter{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.meter{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
 .flavor{background:var(--ink-3);border-radius:var(--r);padding:26px 20px 22px;cursor:pointer;transition:transform .25s, background .25s;border:2px solid transparent;position:relative;overflow:hidden}
 .flavor:hover,.flavor.active{transform:translateY(-6px);border-color:var(--c)}
 .flavor.active{background:color-mix(in srgb,var(--c) 18%, var(--ink-3))}
@@ -391,6 +391,8 @@ footer small{color:var(--muted)}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s, transform .8s}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.title span{opacity:1!important;transform:none!important}}
+.hl .slogan{display:block;margin:.5em 0 0 .1em}
+@media(max-width:980px){.meter .flavor:last-child{grid-column:1/-1}}
 
 /* ===== INSTAGRAM-STYLE HIGHLIGHTS ===== */
 .stories{padding:64px 0 6px}
@@ -470,13 +472,14 @@ footer small{color:var(--muted)}
   <div class="wrap">
     <div class="hl">
       <span class="tagline"><i>●</i> Now open · Lilburn, GA · 100% Halal</span>
+      <p class="slogan">Taste the Flavor</p>
       <h1 class="title" aria-label="Trust the Theory">
         <span class="l1" id="l1">Trust</span>
         <span class="l2">— the —</span>
         <span class="l3" id="l3">Theory</span>
       </h1>
-      <p class="slogan">Taste the Flavor</p>
       <div class="hlt-row" id="hlRow" aria-label="Instagram highlights"></div>
+      
       <div class="rotator">Fried to order. Served <span class="word" id="word">Nashville Hot</span></div>
       <div class="ctas">
         <a class="btn btn-red" href="https://order.toasttab.com/online/bite-theory-4895-stone-mountain-hwy" target="_blank" rel="noopener">Order Pickup →</a>
@@ -485,7 +488,7 @@ footer small{color:var(--muted)}
       <div class="stats">
         <div class="stat"><b>4.9<em>★</em></b><small>Google rating</small></div>
         <div class="stat halal"><b>100%</b><small>Halal</small></div>
-        <div class="stat"><b>6</b><small>Heat levels</small></div>
+        <div class="stat"><b>7</b><small>Heat levels</small></div>
         <div class="stat"><b>1AM</b><small>Fri &amp; Sat</small></div>
       </div>
     </div>
@@ -563,7 +566,7 @@ footer small{color:var(--muted)}
     <div class="heat-head reveal">
       <div>
         <div class="eyebrow">Choose your heat</div>
-        <h2>Six Flavors.<br>One <span class="drip">Theory.</span></h2>
+        <h2>Seven Flavors.<br>One <span class="drip">Theory.</span></h2>
       </div>
       <p>Every wing, tender and fillet can be tossed in any of these. Tap one to find your level. If you pick Reaper, that's on you.</p>
     </div>
@@ -571,8 +574,9 @@ footer small{color:var(--muted)}
       <div class="flavor" style="--c:#fbf5ea" data-t="Classic, crispy and seasoned just right. Great for first-timers."><span class="emoji">🍗</span><div class="lvl"><b></b><b></b><b></b><b></b><b></b></div><h3>Original</h3><small>No heat</small></div>
       <div class="flavor" style="--c:#ffe066" data-t="Bright, zesty and peppery. A crowd favorite on wings."><span class="emoji">🍋</span><div class="lvl"><b></b><b></b><b></b><b></b><b></b></div><h3>Lemon Pepper</h3><small>Zesty</small></div>
       <div class="flavor" style="--c:#c9772e" data-t="Sweet, smoky and sticky. Grab extra napkins."><span class="emoji">🍯</span><div class="lvl"><b class="on"></b><b></b><b></b><b></b><b></b></div><h3>Honey BBQ</h3><small>Sweet heat</small></div>
-      <div class="flavor" style="--c:#f26b21" data-t="Tangy, buttery and classic, with a kick."><span class="emoji">🔥</span><div class="lvl"><b class="on"></b><b class="on"></b><b></b><b></b><b></b></div><h3>Buffalo</h3><small>Medium</small></div>
-      <div class="flavor active" style="--c:#e8262b" data-t="The house heat: cayenne-forward Nashville hot that builds with every bite."><span class="emoji">🌶️</span><div class="lvl"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b></b></div><h3>Theory's Nashville</h3><small>Hot</small></div>
+      <div class="flavor" style="--c:#f26b21" data-t="Tangy, buttery and classic, with a kick."><span class="emoji">🔥</span><div class="lvl"><b class="on"></b><b class="on"></b><b></b><b></b><b></b></div><h3>Buffalo</h3><small>Tangy</small></div>
+      <div class="flavor active" style="--c:#e8262b" data-t="The house heat: cayenne-forward Nashville hot that builds with every bite."><span class="emoji">🌶️</span><div class="lvl"><b class="on"></b><b class="on"></b><b class="on"></b><b></b><b></b></div><h3>Theory's Nashville</h3><small>Mild</small></div>
+      <div class="flavor" style="--c:#c8161d" data-t="A step hotter than Theory's Nashville and one below the Reaper. Keep a drink close."><span class="emoji">🥵</span><div class="lvl"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b></b></div><h3>Medium</h3><small>Hot</small></div>
       <div class="flavor" style="--c:#9b0f16" data-t="Carolina Reaper heat. For professionals only. No refunds on tears."><span class="emoji">💀</span><div class="lvl"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b></div><h3>Reaper</h3><small>Dangerous</small></div>
     </div>
     <div class="heat-readout" id="readout"><strong>Theory's Nashville</strong><span>The house heat: cayenne-forward Nashville hot that builds with every bite.</span></div>
@@ -878,7 +882,7 @@ go(0);
    Each size button opens that exact item on Toast. Photos live in images/menu/. */
 const IMG=n=>__im('menu/'+n+'.jpg'), SM=n=>__im('menu/'+n+'-sm.jpg'), T=slug=>`${ORDER}/item-${slug}`;
 const MENU={
-  chicken:{title:'Chicken',sub:'Double-battered, halal, tossed in any of our 6 flavors.',pics:[['nashville-hot-tenders','Nashville Hot Tenders'],['wings-and-tenders','Wings & Tenders'],['chicken-and-waffle','Chicken & Waffle']],meal:true,items:[
+  chicken:{title:'Chicken',sub:'Double-battered, halal, tossed in any of our 7 flavors.',pics:[['nashville-hot-tenders','Nashville Hot Tenders'],['wings-and-tenders','Wings & Tenders'],['chicken-and-waffle','Chicken & Waffle']],meal:true,items:[
     ['Chicken Tenders','Hand-breaded, juicy, crispy','chicken-tenders',[['2 PC','$7.99','chicken-tenders-2-pc_9cc0f314-4ef0-4673-8409-d7ea44be4082'],['3 PC','$10.99','chicken-tenders-3-pc_29ec6b46-48ca-4b46-af61-e10804344d97'],['5 PC','$14.99','chicken-tenders-5-pc_aee84f07-99eb-4660-bb11-eac54cddddcf']]],
     ['Whole Wings','Full wing, fried golden','whole-wings',[['3 PC','$7.99','whole-wings-3-pc_34c31441-723e-49b0-9ab1-3e34ac5ba2a2'],['4 PC','$9.99','whole-wings-4-pc_f5276e23-9b28-43e2-b355-a1e3dc830dcf'],['6 PC','$13.99','whole-wings-6-pc_34e0aaaa-5a9b-420a-b148-ba91900531d2'],['10 PC','$16.99','whole-wings-10-pc_71cb9cc1-fede-46b0-94b4-1322f2fbef0d']]],
     ['Party Wings','Flats & drums','party-wings',[['6 PC','$6.99','party-wings-6-pc_0ea9c47e-7b99-463a-8120-8db7fd7607fe'],['9 PC','$9.99','party-wings-9-pc_632258bb-64ee-4eab-ba1f-1c07678a2629'],['12 PC','$11.99','party-wings-12-pc_85dd8b0e-07a9-4a8c-ba61-824801f33896']]],
