@@ -402,16 +402,17 @@ footer small{color:var(--muted)}
 .ig-handle small{color:var(--muted);font-size:.92rem}
 .follow{flex:none;font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;background:var(--cream);color:var(--ink);padding:.6em 1.3em;border-radius:999px;font-size:.95rem;transition:transform .2s}
 .follow:hover{transform:translateY(-2px)}
-.hl-row{display:flex;gap:20px;overflow-x:auto;padding:6px 4vw 14px;margin:0 -4vw;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.hl-row::-webkit-scrollbar{display:none}
-.hl{flex:none;width:92px;display:flex;flex-direction:column;align-items:center;gap:9px;background:none;border:0;color:var(--cream);cursor:pointer;font:inherit;padding:0}
-.hl .ring{position:relative;width:92px;height:92px;border-radius:50%;padding:3px;background:conic-gradient(from 200deg,var(--gold),var(--orange),var(--red),var(--red-2),var(--gold));transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
-.hl.seen .ring{background:#3a3634}
-.hl .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--ink)}
-.hl .ring i{position:absolute;right:-2px;bottom:-2px;width:30px;height:30px;border-radius:50%;background:var(--ink);display:grid;place-items:center;font-style:normal;font-size:.95rem;border:2px solid var(--ink)}
-.hl:hover .ring{transform:scale(1.06) rotate(-4deg)}
-.hl span{font-family:var(--block);font-size:.74rem;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
-@media(min-width:900px){.hl-row{justify-content:center;margin:0;padding:6px 0 14px;gap:26px}.hl{width:108px}.hl .ring{width:108px;height:108px}}
+.hlt-row{display:flex;gap:16px;overflow-x:auto;width:100%;max-width:min(600px,92vw);margin:22px 0 4px;padding:4px 2px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch;opacity:0;animation:sloganIn .7s ease-out 1.3s forwards}
+.hlt-row::-webkit-scrollbar{display:none}
+@media (prefers-reduced-motion:reduce){.hlt-row{opacity:1}}
+.hlt{flex:none;width:70px;display:flex;flex-direction:column;align-items:center;gap:9px;background:none;border:0;color:var(--cream);cursor:pointer;font:inherit;padding:0}
+.hlt .ring{position:relative;width:70px;height:70px;border-radius:50%;padding:3px;background:conic-gradient(from 200deg,var(--gold),var(--orange),var(--red),var(--red-2),var(--gold));transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.hlt.seen .ring{background:#3a3634}
+.hlt .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--ink)}
+.hlt .ring i{position:absolute;right:-3px;bottom:-3px;width:24px;height:24px;font-size:.75rem;border-radius:50%;background:var(--ink);display:grid;place-items:center;font-style:normal;font-size:.95rem;border:2px solid var(--ink)}
+.hlt:hover .ring{transform:scale(1.06) rotate(-4deg)}
+.hlt span{font-family:var(--block);font-size:.62rem;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
+@media(min-width:900px){.hlt{width:80px}.hlt .ring{width:80px;height:80px}}
 .sv{position:fixed;inset:0;z-index:300;background:rgba(5,5,5,.94);display:none;align-items:center;justify-content:center;--sd:4200ms}
 .sv.open{display:flex;animation:svin .25s ease}
 @keyframes svin{from{opacity:0}to{opacity:1}}
@@ -475,6 +476,7 @@ footer small{color:var(--muted)}
         <span class="l3" id="l3">Theory</span>
       </h1>
       <p class="slogan">Taste the Flavor</p>
+      <div class="hlt-row" id="hlRow" aria-label="Instagram highlights"></div>
       <div class="rotator">Fried to order. Served <span class="word" id="word">Nashville Hot</span></div>
       <div class="ctas">
         <a class="btn btn-red" href="https://order.toasttab.com/online/bite-theory-4895-stone-mountain-hwy" target="_blank" rel="noopener">Order Pickup →</a>
@@ -514,16 +516,6 @@ footer small{color:var(--muted)}
     <span>Drive-thru</span><span>Takeout</span><span>Dine-in</span><span>Open till 1AM</span><span>Family meals up to 100 wings</span><span>Trust the theory</span>
   </div>
 </div>
-
-<section class="stories" id="highlights" aria-label="Instagram highlights">
-  <div class="wrap">
-    <div class="stories-head">
-      <a class="ig-handle" href="https://instagram.com/eat.bitetheory" target="_blank" rel="noopener"><span class="ig-av"><img id="hlAv" alt=""></span><span><b>@eat.bitetheory</b><small>Tap a circle to see the food.</small></span></a>
-      <a class="follow" href="https://instagram.com/eat.bitetheory" target="_blank" rel="noopener">Follow</a>
-    </div>
-    <div class="hl-row" id="hlRow"></div>
-  </div>
-</section>
 
 <section class="showcase" id="favorites">
   <div class="wrap">
@@ -985,21 +977,20 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* ---------- INSTAGRAM-STYLE HIGHLIGHTS (photos from images/menu) ---------- */
 const HL=[
-  {t:'Hot',e:'🔥',s:[['nashville-hot-tenders','Nashville Hot Tenders','From $7.99','chicken-tenders-2-pc_9cc0f314-4ef0-4673-8409-d7ea44be4082'],['nashville-chicken-sandwich',"Theory's Nashville Sandwich",'$8.99','theorys-nashville-chicken-sandwich_2780c0d7-693e-44a6-994b-933949915766'],['leg-quarters','Nashville Hot Quarter','From $5.99','1-pc-leg-quarter_2ebcf4ee-51b0-4f3b-a30c-c234ec1e51a4'],['chicken-tenders','Chicken Tenders','From $7.99','chicken-tenders-2-pc_9cc0f314-4ef0-4673-8409-d7ea44be4082']]},
+  {t:'Hot',e:'🔥',s:[['nashville-hot-tenders','Nashville Hot Tenders','From $7.99','chicken-tenders-2-pc_9cc0f314-4ef0-4673-8409-d7ea44be4082'],['nashville-chicken-sandwich',"Theory's Nashville Sandwich",'$8.99','theorys-nashville-chicken-sandwich_2780c0d7-693e-44a6-994b-933949915766'],['leg-quarters','Nashville Hot Quarter','From $5.99','1-pc-leg-quarter_2ebcf4ee-51b0-4f3b-a30c-c234ec1e51a4'],['chicken-tenders','Chicken Tenders','From $7.99','chicken-tenders-2-pc_9cc0f314-4ef0-4673-8409-d7ea44be4082'],['chicken-and-waffle','Chicken & Waffle','From $9.99','chicken-waffle-2-pc_49bea398-4137-492b-88be-eecbab19effa']]},
   {t:'Wings',e:'🍗',s:[['whole-wings','Whole Wings','From $7.99','whole-wings-3-pc_34c31441-723e-49b0-9ab1-3e34ac5ba2a2'],['party-wings','Party Wings','From $6.99','party-wings-6-pc_0ea9c47e-7b99-463a-8120-8db7fd7607fe'],['boneless-wings','Boneless Wings','From $6.99','boneless-wings-6-pc_5038bb37-69ee-4b56-8d29-b3cdb2c6f05b'],['boneless-wings-fries','Boneless + Fries','',''],['wings-and-tenders','Wings & Tenders','','']]},
   {t:'Seafood',e:'🍤',s:[['jumbo-shrimp','Jumbo Shrimp','From $11.99','jumbo-shrimp-small_dfbd3a89-2e12-4be0-84b6-40dda68e5261'],['shrimp-basket','Shrimp Basket','',''],['catfish-fillets','Catfish Fillets','From $9.99','catfish-fillets-small_280b87fa-5979-4127-aa3f-a9b18ec7866c'],['catfish-basket','Seafood Combo','From $13.99','pick-2-combo_16e188a8-bd98-414d-8efd-3050518fddfa'],['shrimp-po-boy',"Shrimp Po' Boy",'$10.99','shrimp-po-boy_ef9f1b6d-145a-4bde-a888-8bcbfc08c83a']]},
   {t:'Handhelds',e:'🥪',s:[['nashville-chicken-sandwich',"Theory's Nashville",'$8.99','theorys-nashville-chicken-sandwich_2780c0d7-693e-44a6-994b-933949915766'],['honey-butter-chicken-sandwich','Honey Butter Chicken','$9.99','honey-butter-chicken-sandwich_9fbe8622-9e09-48bb-aec6-d7bec9effbfd'],['fish-sandwich','Fish Sandwich','$8.99','fish-sandwich_4403a578-73e1-4729-88ef-624c810e87be'],['shrimp-tacos','Shrimp Tacos','2 for $9.99','shrimp-tacos-2-pc_85a32886-5151-4a13-b85d-08e0b082ebb6'],['chicken-tacos','Chicken Tacos','$8.99+','chicken-tacos_12fe59a6-1965-448f-9ece-af36535088e2']]},
   {t:'Bowls',e:'🍚',s:[['bite-theorys-bowl',"Bite Theory's Bowl",'$11.99','bite-theorys-bowl_b561a2cb-1dad-416e-813f-3575d065b7b7'],['chicken-over-rice','Chicken Over Rice','$10.99','chicken-over-rice_d8d2c44e-7bf2-4e3b-a3ad-d15e5b1c62bd'],['shrimp-over-rice','Shrimp Over Rice','$14.99','shrimp-over-rice_b84427aa-d40d-47f4-a34f-85e54ed26d92'],['fish-rice-bowl','Fish Rice Bowl','$11.99','fish-rice-bowl_1856953f-4a84-4b44-a875-1fcc3596a1cb'],['dirty-fries','Dirty Fries','$9.99','dirty-fries_038bcaac-ec01-4cf5-b8e0-a04e604fdbb5']]},
   {t:'Sides',e:'🍟',s:[['corn-ribs','Corn Ribs','$6.99','corn-ribs_436e2dd1-c5ba-4954-a25f-99bcad6d06dd'],['fried-pickles','Fried Pickles','$5.99','fried-pickles_c336f0f4-2d3f-4b38-9614-39581804cf93'],['cheese-dippers','Cheese Dippers','$8.99','cheese-dippers_b99c0a00-3747-4725-9c0f-392f6613772e'],['hush-puppies','Hush Puppies','$4.99','hush-puppies_31370772-901d-4017-b376-ee82c903ebe6'],['okra','Okra','$4.99','okra_616394ac-8ad5-43de-9b1e-42ee9aa41671'],['fries','Fries','$3.99+','fries_9178b125-99b3-4f2d-873c-e776747298e8']]},
-  {t:'Sweets',e:'🍰',s:[['chicken-and-waffle','Chicken & Waffle','From $9.99','chicken-waffle-2-pc_49bea398-4137-492b-88be-eecbab19effa'],['waffles','Waffles','',''],['funnel-cake','Funnel Cake','$7.99','funnel-cake_bc326c44-785e-46e2-a089-0903f41b090f'],['double-chocolate-cake','Double Chocolate Cake','$4.99','double-chocolate-cake_e76441f6-8aeb-4b64-8a2c-9baeb7fa32cf'],['strawberry-cheesecake','Strawberry Cheesecake','$4.99','strawberry-cheesecake_d1c31939-9fe3-493e-afe3-dbb158f8e050'],['homemade-lemonade','Homemade Lemonade','$3.99','homemade-lemonade_7e5f3379-c3b8-4321-acec-985681bd43be']]},
+  {t:'Sweets',e:'🍰',s:[['waffles','Waffles','',''],['funnel-cake','Funnel Cake','$7.99','funnel-cake_bc326c44-785e-46e2-a089-0903f41b090f'],['double-chocolate-cake','Double Chocolate Cake','$4.99','double-chocolate-cake_e76441f6-8aeb-4b64-8a2c-9baeb7fa32cf'],['strawberry-cheesecake','Strawberry Cheesecake','$4.99','strawberry-cheesecake_d1c31939-9fe3-493e-afe3-dbb158f8e050'],['homemade-lemonade','Homemade Lemonade','$3.99','homemade-lemonade_7e5f3379-c3b8-4321-acec-985681bd43be']]},
   {t:'Family',e:'👨‍👩‍👧',s:[['legs-and-thighs','Family Legs & Thighs','20 for $24.99','family-legs-thighs-20-pc-mix_2569bc26-1359-4e84-9565-589531338f07'],['whole-wings','Family Whole Wings','20 for $34.99','family-whole-wings-20-wings_5be09739-685a-4824-b12e-d5b6f2e46ac8'],['party-wings','Family Party Wings','25 for $24.99','family-party-wings-25-wings_4d6a9a95-81de-47f9-b508-325d38640969'],['jumbo-shrimp','Family Jumbo Shrimp','20 for $29.99','family-jumbo-shrimp-20-pc_450a255c-815d-4d67-b70c-cee24d9bfa3a']]}
 ];
 (function(){
   const $=id=>document.getElementById(id);
   const full=k=>__im('menu/'+k+'.jpg'),small=k=>__im('menu/'+k+'-sm.jpg');
-  const mark=__im('bt-mark.png');$('hlAv').src=mark;
-  const row=$('hlRow');
-  row.innerHTML=HL.map((h,i)=>`<button class="hl" data-i="${i}" aria-label="Open ${h.t} highlight"><span class="ring"><img src="${small(h.s[0][0])}" alt=""><i>${h.e}</i></span><span>${h.t}</span></button>`).join('');
+    const row=$('hlRow');
+  row.innerHTML=HL.map((h,i)=>`<button class="hlt" data-i="${i}" aria-label="Open ${h.t} highlight"><span class="ring"><img src="${small(h.s[0][0])}" alt=""><i>${h.e}</i></span><span>${h.t}</span></button>`).join('');
   const sv=$('sv'),box=$('svBox'),bars=$('svBars'),img=$('svImg'),blur=$('svBlur'),cap=$('svCap');
   const SD=4200;let hi=0,si=0,t=null,left=SD,start=0,paused=false,holdT=null,held=false;
   function sched(ms){clearTimeout(t);left=ms;start=Date.now();t=setTimeout(next,ms)}
@@ -1023,7 +1014,7 @@ const HL=[
   function prev(){if(si>0)si--;else if(hi>0){hi--;si=HL[hi].s.length-1}show()}
   function pause(){if(paused)return;paused=true;clearTimeout(t);left-=Date.now()-start;sv.classList.add('paused')}
   function resume(){if(!paused)return;paused=false;sv.classList.remove('paused');sched(Math.max(left,300))}
-  row.addEventListener('click',e=>{const b=e.target.closest('.hl');if(b)open(+b.dataset.i)});
+  row.addEventListener('click',e=>{const b=e.target.closest('.hlt');if(b)open(+b.dataset.i)});
   $('svX').addEventListener('click',close);
   sv.addEventListener('click',e=>{if(e.target===sv)close()});
   box.addEventListener('pointerdown',e=>{if(e.target.closest('a,button'))return;held=false;clearTimeout(holdT);holdT=setTimeout(()=>{held=true;pause()},220)});
